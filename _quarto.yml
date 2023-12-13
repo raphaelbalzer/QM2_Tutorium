@@ -33,6 +33,7 @@ book:
         - Aufg_Gauss-Modelle.qmd
         - Aufg_Lineare-Modelle.qmd
         - Aufg_Metrische_AV.qmd
+        - Aufg_Klausurvorbereitung.qmd
     - references.qmd
 
 bibliography: references.bib

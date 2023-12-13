@@ -1,0 +1,335 @@
+# Klausurvorbereitung
+Nehmt euch als Zeit ungefähr 5 min pro Aufgabe.
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(easystats)
+library(rstanarm)
+library(ggthemes)
+library(palmerpenguins)
+```
+
+## Aufgabe Penguins
+::: panel-tabset
+#### A1 a)
+Penguins Datensatz:
+AV: `body_mass_g`\
+UV1: `flipper_length_mm`\
+UV2: `bill_length_mm`
+
+Modell aufstellen mit nur UV1 & Punktschätzer des Effekts angeben
+
+#### L1 a)
+```{r}
+p1 <-
+  stan_glm(body_mass_g ~ flipper_length_mm, data = penguins, seed = 42, refresh = 0)
+parameters(p1)
+```
+Der Punktschätzer des Effekts (Effekt ist so zu verstehen, was hat einen Effekt auf unsere AV?) beträgt hier 49.72. Das heißt, dass ein Pinguin, dessen Flosse einen Millimeter länger ist als die eines anderen, 49.72 g mehr wiegen wird laut unserer Prognose.
+
+:::
+
+::: panel-tabset
+### Aufgabe b)
+Punktschätzer für eine Beobachtung angeben, bei der alle Regressionskoeffizienten den Wert 0 aufweisen
+
+### L1b
+```{r}
+parameters(p1)
+```
+Alle Regressionskoeffizienten sind 0, bedeutet dass alle UVs auf 0 gesetzt werden. Erinnern wir uns kurz nochmal an die Formel für ein Gerade: y = m*x + c. Wenn wir x = 0 machen, dann bleibt nur noch der Y-Achsenabschnitt (= Intercept) übrig. Also ist der Punktschätzer für eine Beobachtung, bei der alle Regressionskoeffizienten den Wert 0 aufweisen, -5787.35.
+:::
+
+::: panel-tabset
+### Aufgabe c)
+Breite des 90% HDI-Intervalls für den Effekt angeben
+
+### L1c
+```{r}
+parameters(p1, ci_method = "hdi", ci = .9)
+
+47.24 -   52.15
+```
+Für den Effekt angeben, also wieder für unsere UV: 4.91 ist die Breite, dass Intervall ist [47.24, 52.15]
+:::
+
+::: panel-tabset
+### Aufgabe d)
+Gib den Punktschätzer für den mittleren Wert des Körpergewichts eines Pinguins mit durschnittlicher Flossenlänge an.
+
+### L1d
+```{r}
+# Neue Tabelle mit zentrierter UV erstellen
+penguins_c <-
+  penguins |>
+  drop_na() %>%
+  mutate(flipper_length_mm_c = flipper_length_mm - mean(flipper_length_mm))
+
+p2 <- stan_glm(body_mass_g ~ flipper_length_mm_c, data = penguins_c, refresh = 0, seed = 42)
+parameters(p2)
+```
+Ein Penguin, der eine durchschnittliche Flossenlänge hat, hat ein mittleres Körpergewicht von 4207.22 g. Wenn man diesen Wert nochmal mit den nicht zentrierten Werten vergleicht, dann machen die Werte jetzt auf einmal viel mehr Sinn, denn vorher war das mittlere Körpergewicht mit einer Flossenlänge von 0 mm -5787 g. 
+:::
+
+::: panel-tabset
+### Aufgabe e)
+Gib den Punktschätzer für den mittleren Wert des Körpergewichts eines Adelie-Pinguins mit durschnittlicher Flossenlänge in Kilogramm an.
+
+### L1e
+```{r}
+# neue Tabelle mit nur Adelie-Pinguinen und dem Gewicht in Kilogramm erstellen
+penguins_c <-
+  penguins_c %>%
+  filter(species == "Adelie") %>% 
+  mutate(body_mass_kg = body_mass_g/1000)
+
+p2 <- stan_glm(body_mass_kg ~ flipper_length_mm_c, data = penguins_c, refresh = 0, seed = 42)
+parameters(p2)
+```
+Das mittlere Gewicht eines Adelie-Pinguins mit einer durchschnittlichen Flossenlänge beträgt 4.06 kg. (Adelie Pinguine scheinen im Durchschnitt etwas leichter zu sein als der Durchschnitt aller Pinguine.)
+:::
+
+## rope4
+
+::: panel-tabset
+
+### A-rope
+Ist der Unterschied zwischen Männern und Frauen (Dem_gender) im Hinblick zum Zusammenhang von Stress (PSS10_avg, AV) und Neurotizismus (neu, UV) vernachlässigbar klein?
+
+Den Datensatz können Sie so herunterladen (Achtung, groß):
+```{r}
+osf_d_path <- "https://osf.io/cjxua/?action=download"
+
+d <- read_csv(osf_d_path)
+```
+### L-rope
+
+Wir ziehen uns nur die 3 Spalten in eine neue Tabelle, die wir auch wirklich brauchen.
+```{r}
+d2 <-
+  d %>% 
+  select(PSS10_avg, neu, Dem_gender)
+```
+
+Wir filtern zuerst aus der Spalte Gender nur die Fälle für male und female, droppen dann alle NAs und erstellen anschließend eine neue Spalte für Geschlecht, bei dem alle weiblichen Fälle den Wert 1 und alle männlichen Fälle den Wert 0 zugewiesen bekommen.
+```{r}
+d3 <-
+  d2 %>% 
+  filter(Dem_gender %in% c("Female", "Male")) %>% 
+  drop_na() %>% 
+  mutate( is_female = case_when(
+    Dem_gender == "Female" ~ 1,
+    Dem_gender == "Male" ~ 0)) %>% 
+  select(-Dem_gender)
+d3 |> 
+  count(is_female)
+```
+
+```{r}
+m1 <-
+  stan_glm(PSS10_avg ~ neu + is_female + neu:is_female, 
+           refresh = 0,
+           seed = 42,
+           data = d3)
+parameters(m1)
+
+```
+
+```{r}
+rope(m1)
+
+plot(rope(m1))
+```
+
+Antwort: Ja, der Effekt  ist vernachlässigbar klein! 
+Wenn dem nicht so wäre, dann wäre der Effekt von neuro auf Stress abhängig von der Ausprägung einer dritten Variable, nämlich vom Geschlecht der Probandis. Konkret würde das zum Beispiel heißen, dass die Ausprägung von Neuro bei Männern einen stärken bzw. schwächeren Einfluss auf Stress hat als bei Frauen.
+
+:::
+
+## penguins-stan-05
+
+::: panel-tabset
+
+### A-penguins-stan
+Wir untersuchen Einflussfaktoren bzw. Prädiktoren auf das Körpergewicht von Pinguinen. In dieser Aufgabe untersuchen wir den Zusammenhang von Schnabellänge (als UV) und Körpergewicht (als AV).
+
+Aufgabe: Wie breit ist das 95%-ETI des Effekts, wenn Sie nur die Spezies Adelie untersuchen?
+
+### L-penguins-stan
+
+```{r}
+# nur nach Adelie filtern
+penguins_adelie <- 
+  penguins %>% 
+  filter(species == "Adelie")
+```
+
+```{r}
+m1 <- stan_glm(body_mass_g ~  bill_length_mm, 
+               data = penguins_adelie, 
+               seed = 42, 
+               refresh = 0) 
+
+parameters(m1, ci = .95, ci_method = "eti")
+
+71.63 - 118.07
+```
+Es war nach dem 95% ETI des EFFEKTS gefragt, also schauen wir wieder bei der UV nach. Das Intervall hat eine Breite von 46.44
+
+:::
+
+## mtcars Aufgabe
+
+::: panel-tabset
+
+### A-mtcars
+Zur Lösung dieser Aufgabe ist folgendes lineares Modell zu berechnen:
+AV: mpg.
+UVs: hp, vs.
+Der gewählte Prädiktor ist die erste oben genannte UV: hp (uv1).
+Aufgabe: Wie hoch ist die Wahrscheinlichkeit, dass der Effekt der gewählten UV größer ist als 0.2-SD-Einheiten der AV?
+
+### L-mtcars
+
+```{r}
+data("mtcars")
+g2 <-
+  stan_glm(mpg ~ hp + vs, data = mtcars, refresh = 0, seed = 42)
+
+g2_tab <-
+  g2 %>% 
+  as_tibble()
+
+g2 # man ließt hier aus der Angabe ab, wie groß die Standardabweichung der AV ist und nimmt diese dann mal 0.2
+2.9*0.2 
+#0.58
+
+g2_tab %>% 
+  count(hp > 0.58)
+
+```
+DIe Wahrscheinlichkeit dafür, dass der Effekt größer als 0.2 SD-Einheiten der AV ist, beträgt 0.
+:::
+
+## Aufgabe rope
+
+::: panel-tabset
+
+### A
+Zur Lösung dieser Aufgabe ist folgendes lineares Modell zu berechnen:
+AV: mpg.
+UVs: wt, hp.
+
+Im Folgenden wird ein Prädiktor aus der Menge der UV näher betrachtet. Der gewählte Prädiktor ist die erste oben genannte UV: wt (uv1).
+Aufgabe: Geben Sie den Anteil der Stichproben der Posteriori-Verteilung an, die innerhalb des ROPE liegen!
+
+### L
+```{r}
+g3 <-
+  stan_glm(mpg ~ wt + hp, data = mtcars, refresh = 0, seed = 42)
+
+plot(rope(g3))
+rope(g3)
+```
+
+Die Frage war nach dem Prädiktor wt, also lesen wir ab, wie viel Prozent innerhalb des ROPEs liegen, in diesem Fall sind das 0%. 
+Eine mögliche Antwort in Bezug auf eine Forschungsfrage könnte lauten: Die Hypothese, dass der Prädiktor wt einen Einfluss auf die AV mpg hat, kann angenommen werden.
+Für hp würde hier gelten: Der Einfluss von hp auf die AV mpg ist vernachlässigbar klein.
+:::
+
+## Denkaufgabe
+
+::: panel-tabset
+
+### A
+Beziehen Sie sich auf das Regressionsmodell, für das die Ausgabe mit stan_glm() hier dargestellt ist:
+
+## stan_glm
+##  family:       gaussian [identity]
+##  formula:      height ~ weight_c
+##  observations: 346
+##  predictors:   2
+## ------
+##             Median MAD_SD
+## (Intercept) 154.6    0.3 
+## weight_c      0.9    0.0 
+## 
+## Auxiliary parameter(s):
+##       Median MAD_SD
+## sigma 5.1    0.2   
+Betrachten Sie wieder folgende Beziehung (Gleichung bzw. Ungleichung):
+
+$$Pr(\text{height}_i = 155|\text{weightcentered}_i=0, \alpha, \beta, \sigma) \quad \Box \quad Pr(\text{height}_i = 156|\text{weightcentered}_i=0, \alpha, \beta, \sigma)$$
+
+Die in der obigen Beziehung angegebenen Parameter beziehen sich auf das oben dargestellt Modell.
+
+Ergänzen Sie das korrekte Zeichen in das Rechteck $\Box$ !
+
+Answerlist
+* $\lt$
+* $\le$
+* $\gt$
+* $\ge$
+* $=$
+### L
+
+Richtig ist: $\gt$
+Antwort: Der erste Teil der Gleichung gibt die Wahrscheinlichkeit für den Punktschätzer der AV an, wenn der Regressionkoeffizient den Wert x = 0 aufweist. Es soll also die Wahrscheinlichkeit dafür angegeben werden, dass der Wert einer Beobachtung 155 ist. 
+Der zweite Teil der Gleichung liest sich genauso, bloß dass hier die Wahrscheinlichkeit dafür berechnet werden soll, dass der Wert einer Beobachtung 156 ist. 
+Schauen wir also jetzt oben in den Output, dann sehen wir, dass der Intercept = 154.6 ist. Also ist die Wahrscheinlichkeit größer für den Wert 155, denn dieser Wert liegt näher am wahren Wert 154.6 als der Wert 156. 
+:::
+
+## mtcars 2
+Untersucht wird der Effekt des Gewichts (wt) und des Schaltgetriebes (am) auf den Spritverbrauch (mpg) eines Autos.
+
+### mtcars 2 a)
+
+:::panel-tabset
+
+#### A2 a)
+Wie groß ist der Unterschied im Spritverbrauch zwischen einem Auto mit Automatik-Schaltung im Vergleich zu einem Auto mit manuellem Schaltgetriebe, wenn der Effekt aller anderen Prädiktoren null ist?
+
+#### L2 a)
+```{r}
+m1 <- stan_glm(mpg ~ wt + am, data = mtcars,
+               seed = 42,
+               refresh = 0)
+parameters(m1)
+```
+
+Der Intercept zeigt uns den Punktschätzer für den mittleren Spritverbrauch für ein Auto ohne Gewicht mit manuellem Schaltgetriebe an. in der Zeile am können wir ablesen, um wieviele Gallonen pro Meile sich der Spritverbrauch von Automatik-Getrieben davon unterscheidet. Das sind 0,03 Gallonen. Da die Ausgabe von paramerts den Effekt der einzelnen Koeffizienten anzeigt unter der Bedingung, dass der Effekt aller anderen Koeffizienten null sind, ist das auch gleichzeitig die gesuchte Zahl.
+:::
+
+### mtcars 2 b)
+
+::: panel-tabset
+
+#### A2 b)
+Ist der Unterschied zwischen Autos mit Automatik vs. manueller Schaltung in Bezug auf den Effekt vom Gewicht auf den Spritverbrauch eines Autos vernachlässigbar klein? 
+
+#### L2 b)
+```{r}
+m2 <- stan_glm(mpg ~ wt + am + wt:am, data = mtcars,
+               seed = 42,
+               refresh = 0)
+
+```
+```{r}
+rope(m2)
+```
+
+```{r}
+plot(rope(m2))
+```
+Der Effekt ist dadurch, dass der Koeffizient wt:am zu 0% im ROPE liegt, relevant und damit nicht vernachlässigbar klein. Dass ein Interaktionseffekt besteht, sieht man auch in folgendem Streudiagramm: Der Spritverbrauch von Autos mit Automatik-Schaltung sinkt mit abnehmendem Gewicht deutlich stärker, als der von Autos mit manueller Schaltung.
+
+```{r}
+mtcars %>% 
+  mutate(am=factor(am)) %>% 
+ggplot(aes(x = wt, y = mpg, color= am)) +
+  geom_point()+
+  geom_smooth(method = "lm") +
+  theme_minimal()+
+  scale_color_tableau("Nuriel Stone")
+```
+:::

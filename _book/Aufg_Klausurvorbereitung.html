@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>QM2-Tutorium WiSe23/24 - 8&nbsp; Klausurvorbereitung</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./Aufg_Metrische_AV.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">QM2-Tutorium WiSe23/24</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://statistik1.netlify.app/" rel="" target="">
+ <span class="menu-text">statistik1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://start-bayes.netlify.app/" rel="" target="">
+ <span class="menu-text">start: bayes!</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://qm1-tutorium.netlify.app/" rel="" target="">
+ <span class="menu-text">QM1-Tutorium</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://qm2-tutorium.netlify.app/" rel="" target="">
+ <span class="menu-text">QM2-Tutorium</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Aufg_Wahrscheinlichkeiten.html">Aufgaben</a></li><li class="breadcrumb-item"><a href="./Aufg_Klausurvorbereitung.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Klausurvorbereitung</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./QM2-Tutorium_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Allgemeines</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Aufgaben</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Aufg_Wahrscheinlichkeiten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Wahrscheinlichkeiten</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Aufg_Verteilungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Verteilungen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Aufg_Globusversuch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Globusversuch</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Aufg_Postverteilung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Postverteilung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Aufg_Gauss-Modelle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Gauss-Modelle</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Aufg_Lineare-Modelle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Lineare Modelle</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Aufg_Metrische_AV.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Forschungsfragen mit metrischer AV</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Aufg_Klausurvorbereitung.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Klausurvorbereitung</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#aufgabe-penguins" id="toc-aufgabe-penguins" class="nav-link active" data-scroll-target="#aufgabe-penguins"><span class="header-section-number">8.1</span> Aufgabe Penguins</a></li>
+  <li><a href="#rope4" id="toc-rope4" class="nav-link" data-scroll-target="#rope4"><span class="header-section-number">8.2</span> rope4</a></li>
+  <li><a href="#penguins-stan-05" id="toc-penguins-stan-05" class="nav-link" data-scroll-target="#penguins-stan-05"><span class="header-section-number">8.3</span> penguins-stan-05</a></li>
+  <li><a href="#mtcars-aufgabe" id="toc-mtcars-aufgabe" class="nav-link" data-scroll-target="#mtcars-aufgabe"><span class="header-section-number">8.4</span> mtcars Aufgabe</a></li>
+  <li><a href="#aufgabe-rope" id="toc-aufgabe-rope" class="nav-link" data-scroll-target="#aufgabe-rope"><span class="header-section-number">8.5</span> Aufgabe rope</a></li>
+  <li><a href="#denkaufgabe" id="toc-denkaufgabe" class="nav-link" data-scroll-target="#denkaufgabe"><span class="header-section-number">8.6</span> Denkaufgabe</a></li>
+  <li><a href="#mtcars-2" id="toc-mtcars-2" class="nav-link" data-scroll-target="#mtcars-2"><span class="header-section-number">8.20</span> mtcars 2</a>
+  <ul class="collapse">
+  <li><a href="#mtcars-2-a" id="toc-mtcars-2-a" class="nav-link" data-scroll-target="#mtcars-2-a"><span class="header-section-number">8.20.1</span> mtcars 2 a)</a></li>
+  <li><a href="#mtcars-2-b" id="toc-mtcars-2-b" class="nav-link" data-scroll-target="#mtcars-2-b"><span class="header-section-number">8.20.2</span> mtcars 2 b)</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Klausurvorbereitung</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Nehmt euch als Zeit ungefähr 5 min pro Aufgabe.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstanarm)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="aufgabe-penguins" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="aufgabe-penguins"><span class="header-section-number">8.1</span> Aufgabe Penguins</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">A1 a)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">L1 a)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Penguins Datensatz: AV: <code>body_mass_g</code><br>
+UV1: <code>flipper_length_mm</code><br>
+UV2: <code>bill_length_mm</code></p>
+<p>Modell aufstellen mit nur UV1 &amp; Punktschätzer des Effekts angeben</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stan_glm</span>(body_mass_g <span class="sc">~</span> flipper_length_mm, <span class="at">data =</span> penguins, <span class="at">seed =</span> <span class="dv">42</span>, <span class="at">refresh =</span> <span class="dv">0</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(p1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Median"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["pd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Rhat"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ESS"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Prior_Distribution"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Prior_Location"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Prior_Scale"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"-5787.34917","3":"0.95","4":"-6381.09858","5":"-5175.28905","6":"1","7":"1.000896","8":"4017.982","9":"normal","10":"4201.754","11":"2004.8863"},{"1":"flipper_length_mm","2":"49.71739","3":"0.95","4":"46.70362","5":"52.64025","6":"1","7":"1.000918","8":"4004.021","9":"normal","10":"0.000","11":"142.5777"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Der Punktschätzer des Effekts (Effekt ist so zu verstehen, was hat einen Effekt auf unsere AV?) beträgt hier 49.72. Das heißt, dass ein Pinguin, dessen Flosse einen Millimeter länger ist als die eines anderen, 49.72 g mehr wiegen wird laut unserer Prognose.</p>
+</div>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Aufgabe b)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">L1b</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Punktschätzer für eine Beobachtung angeben, bei der alle Regressionskoeffizienten den Wert 0 aufweisen</p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(p1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Median"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["pd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Rhat"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ESS"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Prior_Distribution"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Prior_Location"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Prior_Scale"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"-5787.34917","3":"0.95","4":"-6381.09858","5":"-5175.28905","6":"1","7":"1.000896","8":"4017.982","9":"normal","10":"4201.754","11":"2004.8863"},{"1":"flipper_length_mm","2":"49.71739","3":"0.95","4":"46.70362","5":"52.64025","6":"1","7":"1.000918","8":"4004.021","9":"normal","10":"0.000","11":"142.5777"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Alle Regressionskoeffizienten sind 0, bedeutet dass alle UVs auf 0 gesetzt werden. Erinnern wir uns kurz nochmal an die Formel für ein Gerade: y = m*x + c.&nbsp;Wenn wir x = 0 machen, dann bleibt nur noch der Y-Achsenabschnitt (= Intercept) übrig. Also ist der Punktschätzer für eine Beobachtung, bei der alle Regressionskoeffizienten den Wert 0 aufweisen, -5787.35.</p>
+</div>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Aufgabe c)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">L1c</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Breite des 90% HDI-Intervalls für den Effekt angeben</p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(p1, <span class="at">ci_method =</span> <span class="st">"hdi"</span>, <span class="at">ci =</span> .<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Median"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["pd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Rhat"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ESS"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Prior_Distribution"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Prior_Location"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Prior_Scale"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"-5787.34917","3":"0.9","4":"-6274.13107","5":"-5283.35677","6":"1","7":"1.000896","8":"4017.982","9":"normal","10":"4201.754","11":"2004.8863"},{"1":"flipper_length_mm","2":"49.71739","3":"0.9","4":"47.24498","5":"52.15364","6":"1","7":"1.000918","8":"4004.021","9":"normal","10":"0.000","11":"142.5777"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fl">47.24</span> <span class="sc">-</span>   <span class="fl">52.15</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -4.91</code></pre>
+</div>
+</div>
+<p>Für den Effekt angeben, also wieder für unsere UV: 4.91 ist die Breite, dass Intervall ist [47.24, 52.15]</p>
+</div>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Aufgabe d)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">L1d</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>Gib den Punktschätzer für den mittleren Wert des Körpergewichts eines Pinguins mit durschnittlicher Flossenlänge an.</p>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Neue Tabelle mit zentrierter UV erstellen</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>penguins_c <span class="ot">&lt;-</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  penguins <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">flipper_length_mm_c =</span> flipper_length_mm <span class="sc">-</span> <span class="fu">mean</span>(flipper_length_mm))</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">stan_glm</span>(body_mass_g <span class="sc">~</span> flipper_length_mm_c, <span class="at">data =</span> penguins_c, <span class="at">refresh =</span> <span class="dv">0</span>, <span class="at">seed =</span> <span class="dv">42</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(p2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Median"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["pd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Rhat"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ESS"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Prior_Distribution"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Prior_Location"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Prior_Scale"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"4207.21633","3":"0.95","4":"4162.72009","5":"4249.22361","6":"1","7":"1.000554","8":"3852.472","9":"normal","10":"4207.057","11":"2013.0395"},{"1":"flipper_length_mm_c","2":"50.22771","3":"0.95","4":"47.14687","5":"53.27518","6":"1","7":"1.000970","8":"3312.074","9":"normal","10":"0.000","11":"143.6268"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Ein Penguin, der eine durchschnittliche Flossenlänge hat, hat ein mittleres Körpergewicht von 4207.22 g. Wenn man diesen Wert nochmal mit den nicht zentrierten Werten vergleicht, dann machen die Werte jetzt auf einmal viel mehr Sinn, denn vorher war das mittlere Körpergewicht mit einer Flossenlänge von 0 mm -5787 g.</p>
+</div>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Aufgabe e)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">L1e</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p>Gib den Punktschätzer für den mittleren Wert des Körpergewichts eines Adelie-Pinguins mit durschnittlicher Flossenlänge in Kilogramm an.</p>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># neue Tabelle mit nur Adelie-Pinguinen und dem Gewicht in Kilogramm erstellen</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>penguins_c <span class="ot">&lt;-</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  penguins_c <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">body_mass_kg =</span> body_mass_g<span class="sc">/</span><span class="dv">1000</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">stan_glm</span>(body_mass_kg <span class="sc">~</span> flipper_length_mm_c, <span class="at">data =</span> penguins_c, <span class="at">refresh =</span> <span class="dv">0</span>, <span class="at">seed =</span> <span class="dv">42</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(p2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Median"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["pd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Rhat"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ESS"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Prior_Distribution"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Prior_Location"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Prior_Scale"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"4.05965217","3":"0.95","4":"3.92917051","5":"4.18306563","6":"1","7":"1.000113","8":"3858.345","9":"normal","10":"3.706164","11":"1.1465503"},{"1":"flipper_length_mm_c","2":"0.03258092","3":"0.95","4":"0.02226225","5":"0.04272681","6":"1","7":"1.000459","8":"3491.427","9":"normal","10":"0.000000","11":"0.1758021"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Das mittlere Gewicht eines Adelie-Pinguins mit einer durchschnittlichen Flossenlänge beträgt 4.06 kg. (Adelie Pinguine scheinen im Durchschnitt etwas leichter zu sein als der Durchschnitt aller Pinguine.)</p>
+</div>
+</div>
+</div>
+</section>
+<section id="rope4" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="rope4"><span class="header-section-number">8.2</span> rope4</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">A-rope</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">L-rope</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<p>Ist der Unterschied zwischen Männern und Frauen (Dem_gender) im Hinblick zum Zusammenhang von Stress (PSS10_avg, AV) und Neurotizismus (neu, UV) vernachlässigbar klein?</p>
+<p>Den Datensatz können Sie so herunterladen (Achtung, groß):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>osf_d_path <span class="ot">&lt;-</span> <span class="st">"https://osf.io/cjxua/?action=download"</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(osf_d_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: One or more parsing issues, see `problems()` for details</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 125306 Columns: 154
+-- Column specification --------------------------------------------------------
+Delimiter: ","
+chr   (23): answered_all, UserLanguage, Dem_gender, Dem_edu, Dem_edu_mom, De...
+dbl  (128): ID, Duration..in.seconds., Dem_age, Dem_dependents, Dem_isolatio...
+lgl    (2): experience_war_TXT, time_spent_in_war_TXT
+dttm   (1): RecordedDate
+
+i Use `spec()` to retrieve the full column specification for this data.
+i Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<p>Wir ziehen uns nur die 3 Spalten in eine neue Tabelle, die wir auch wirklich brauchen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  d <span class="sc">%&gt;%</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(PSS10_avg, neu, Dem_gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wir filtern zuerst aus der Spalte Gender nur die Fälle für male und female, droppen dann alle NAs und erstellen anschließend eine neue Spalte für Geschlecht, bei dem alle weiblichen Fälle den Wert 1 und alle männlichen Fälle den Wert 0 zugewiesen bekommen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>d3 <span class="ot">&lt;-</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  d2 <span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Dem_gender <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>( <span class="at">is_female =</span> <span class="fu">case_when</span>(</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    Dem_gender <span class="sc">==</span> <span class="st">"Female"</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    Dem_gender <span class="sc">==</span> <span class="st">"Male"</span> <span class="sc">~</span> <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Dem_gender)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>d3 <span class="sc">|&gt;</span> </span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(is_female)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["is_female"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"0","2":"28371"},{"1":"1","2":"78472"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stan_glm</span>(PSS10_avg <span class="sc">~</span> neu <span class="sc">+</span> is_female <span class="sc">+</span> neu<span class="sc">:</span>is_female, </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">refresh =</span> <span class="dv">0</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">seed =</span> <span class="dv">42</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">data =</span> d3)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Median"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["pd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Rhat"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ESS"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Prior_Distribution"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Prior_Location"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Prior_Scale"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"1.34114221","3":"0.95","4":"1.31752218","5":"1.36411603","6":"1","7":"1.001274","8":"1139.6816","9":"normal","10":"2.622351","11":"1.837948"},{"1":"neu","2":"0.35917641","3":"0.95","4":"0.35227567","5":"0.36628959","6":"1","7":"1.001854","8":"1146.7115","9":"normal","10":"0.000000","11":"1.746290"},{"1":"is_female","2":"0.17807121","3":"0.95","4":"0.15043097","5":"0.20547266","6":"1","7":"1.002058","8":"984.2769","9":"normal","10":"0.000000","11":"4.161813"},{"1":"neu:is_female","2":"-0.01910496","3":"0.95","4":"-0.02708948","5":"-0.01091181","6":"1","7":"1.002839","8":"982.9762","9":"normal","10":"0.000000","11":"1.048027"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rope</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Possible multicollinearity between is_female and neu (r = 0.8), neu:is_female and neu (r = 0.86). This might lead to inappropriate results. See 'Details' in '?rope'.</code></pre>
+</div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["CI"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["ROPE_low"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["ROPE_high"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["ROPE_Percentage"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Effects"],"name":[6],"type":["chr"],"align":["left"]},{"label":["Component"],"name":[7],"type":["chr"],"align":["left"]}],"data":[{"1":"(Intercept)","2":"0.95","3":"-0.07351792","4":"0.07351792","5":"0","6":"fixed","7":"conditional","_rn_":"1"},{"1":"neu","2":"0.95","3":"-0.07351792","4":"0.07351792","5":"0","6":"fixed","7":"conditional","_rn_":"3"},{"1":"is_female","2":"0.95","3":"-0.07351792","4":"0.07351792","5":"0","6":"fixed","7":"conditional","_rn_":"2"},{"1":"neu:is_female","2":"0.95","3":"-0.07351792","4":"0.07351792","5":"1","6":"fixed","7":"conditional","_rn_":"4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">rope</span>(m1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Possible multicollinearity between is_female and neu (r = 0.8), neu:is_female and neu (r = 0.86). This might lead to inappropriate results. See 'Details' in '?rope'.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Aufg_Klausurvorbereitung_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Antwort: Ja, der Effekt ist vernachlässigbar klein! Wenn dem nicht so wäre, dann wäre der Effekt von neuro auf Stress abhängig von der Ausprägung einer dritten Variable, nämlich vom Geschlecht der Probandis. Konkret würde das zum Beispiel heißen, dass die Ausprägung von Neuro bei Männern einen stärken bzw. schwächeren Einfluss auf Stress hat als bei Frauen.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="penguins-stan-05" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="penguins-stan-05"><span class="header-section-number">8.3</span> penguins-stan-05</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">A-penguins-stan</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">L-penguins-stan</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<p>Wir untersuchen Einflussfaktoren bzw. Prädiktoren auf das Körpergewicht von Pinguinen. In dieser Aufgabe untersuchen wir den Zusammenhang von Schnabellänge (als UV) und Körpergewicht (als AV).</p>
+<p>Aufgabe: Wie breit ist das 95%-ETI des Effekts, wenn Sie nur die Spezies Adelie untersuchen?</p>
+</div>
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># nur nach Adelie filtern</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>penguins_adelie <span class="ot">&lt;-</span> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">stan_glm</span>(body_mass_g <span class="sc">~</span>  bill_length_mm, </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> penguins_adelie, </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">seed =</span> <span class="dv">42</span>, </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">refresh =</span> <span class="dv">0</span>) </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(m1, <span class="at">ci =</span> .<span class="dv">95</span>, <span class="at">ci_method =</span> <span class="st">"eti"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Median"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["pd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Rhat"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ESS"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Prior_Distribution"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Prior_Location"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Prior_Scale"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"45.36075","3":"0.95","4":"-880.35499","5":"927.5335","6":"0.54","7":"1.000158","8":"4028.619","9":"normal","10":"3700.662","11":"1146.4153"},{"1":"bill_length_mm","2":"94.27418","3":"0.95","4":"71.63334","5":"118.0674","6":"1.00","7":"1.000100","8":"4005.549","9":"normal","10":"0.000","11":"430.4322"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fl">71.63</span> <span class="sc">-</span> <span class="fl">118.07</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -46.44</code></pre>
+</div>
+</div>
+<p>Es war nach dem 95% ETI des EFFEKTS gefragt, also schauen wir wieder bei der UV nach. Das Intervall hat eine Breite von 46.44</p>
+</div>
+</div>
+</div>
+</section>
+<section id="mtcars-aufgabe" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="mtcars-aufgabe"><span class="header-section-number">8.4</span> mtcars Aufgabe</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true">A-mtcars</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false">L-mtcars</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
+<p>Zur Lösung dieser Aufgabe ist folgendes lineares Modell zu berechnen: AV: mpg. UVs: hp, vs. Der gewählte Prädiktor ist die erste oben genannte UV: hp (uv1). Aufgabe: Wie hoch ist die Wahrscheinlichkeit, dass der Effekt der gewählten UV größer ist als 0.2-SD-Einheiten der AV?</p>
+</div>
+<div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"mtcars"</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>g2 <span class="ot">&lt;-</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stan_glm</span>(mpg <span class="sc">~</span> hp <span class="sc">+</span> vs, <span class="at">data =</span> mtcars, <span class="at">refresh =</span> <span class="dv">0</span>, <span class="at">seed =</span> <span class="dv">42</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>g2_tab <span class="ot">&lt;-</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  g2 <span class="sc">%&gt;%</span> </span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>g2 <span class="co"># man ließt hier aus der Angabe ab, wie groß die Standardabweichung der AV ist und nimmt diese dann mal 0.2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>stan_glm
+ family:       gaussian [identity]
+ formula:      mpg ~ hp + vs
+ observations: 32
+ predictors:   3
+------
+            Median MAD_SD
+(Intercept) 26.8    2.9  
+hp          -0.1    0.0  
+vs           2.7    2.0  
+
+Auxiliary parameter(s):
+      Median MAD_SD
+sigma 3.9    0.5   
+
+------
+* For help interpreting the printed output see ?print.stanreg
+* For info on the priors used see ?prior_summary.stanreg</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fl">2.9</span><span class="sc">*</span><span class="fl">0.2</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.58</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#0.58</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>g2_tab <span class="sc">%&gt;%</span> </span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(hp <span class="sc">&gt;</span> <span class="fl">0.58</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["hp > 0.58"],"name":[1],"type":["lgl"],"align":["right"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"FALSE","2":"4000"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>DIe Wahrscheinlichkeit dafür, dass der Effekt größer als 0.2 SD-Einheiten der AV ist, beträgt 0.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="aufgabe-rope" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="aufgabe-rope"><span class="header-section-number">8.5</span> Aufgabe rope</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true">A</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false">L</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
+<p>Zur Lösung dieser Aufgabe ist folgendes lineares Modell zu berechnen: AV: mpg. UVs: wt, hp.</p>
+<p>Im Folgenden wird ein Prädiktor aus der Menge der UV näher betrachtet. Der gewählte Prädiktor ist die erste oben genannte UV: wt (uv1). Aufgabe: Geben Sie den Anteil der Stichproben der Posteriori-Verteilung an, die innerhalb des ROPE liegen!</p>
+</div>
+<div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>g3 <span class="ot">&lt;-</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stan_glm</span>(mpg <span class="sc">~</span> wt <span class="sc">+</span> hp, <span class="at">data =</span> mtcars, <span class="at">refresh =</span> <span class="dv">0</span>, <span class="at">seed =</span> <span class="dv">42</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">rope</span>(g3))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Aufg_Klausurvorbereitung_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rope</span>(g3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["CI"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["ROPE_low"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["ROPE_high"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["ROPE_Percentage"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Effects"],"name":[6],"type":["chr"],"align":["left"]},{"label":["Component"],"name":[7],"type":["chr"],"align":["left"]}],"data":[{"1":"(Intercept)","2":"0.95","3":"-0.6026948","4":"0.6026948","5":"0","6":"fixed","7":"conditional","_rn_":"1"},{"1":"wt","2":"0.95","3":"-0.6026948","4":"0.6026948","5":"0","6":"fixed","7":"conditional","_rn_":"3"},{"1":"hp","2":"0.95","3":"-0.6026948","4":"0.6026948","5":"1","6":"fixed","7":"conditional","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Die Frage war nach dem Prädiktor wt, also lesen wir ab, wie viel Prozent innerhalb des ROPEs liegen, in diesem Fall sind das 0%. Eine mögliche Antwort in Bezug auf eine Forschungsfrage könnte lauten: Die Hypothese, dass der Prädiktor wt einen Einfluss auf die AV mpg hat, kann angenommen werden. Für hp würde hier gelten: Der Einfluss von hp auf die AV mpg ist vernachlässigbar klein.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="denkaufgabe" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="denkaufgabe"><span class="header-section-number">8.6</span> Denkaufgabe</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" role="tab" aria-controls="tabset-10-1" aria-selected="true">A</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-10-1-tab">
+<p>Beziehen Sie sich auf das Regressionsmodell, für das die Ausgabe mit stan_glm() hier dargestellt ist:</p>
+<section id="stan_glm" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="stan_glm"><span class="header-section-number">8.7</span> stan_glm</h2>
+</section>
+<section id="family-gaussian-identity" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="family-gaussian-identity"><span class="header-section-number">8.8</span> family: gaussian [identity]</h2>
+</section>
+<section id="formula-height-weight_c" class="level2" data-number="8.9">
+<h2 data-number="8.9" class="anchored" data-anchor-id="formula-height-weight_c"><span class="header-section-number">8.9</span> formula: height ~ weight_c</h2>
+</section>
+<section id="observations-346" class="level2" data-number="8.10">
+<h2 data-number="8.10" class="anchored" data-anchor-id="observations-346"><span class="header-section-number">8.10</span> observations: 346</h2>
+</section>
+<section id="predictors-2" class="level2" data-number="8.11">
+<h2 data-number="8.11" class="anchored" data-anchor-id="predictors-2"><span class="header-section-number">8.11</span> predictors: 2</h2>
+</section>
+<section id="section" class="level2" data-number="8.12">
+<h2 data-number="8.12" class="anchored" data-anchor-id="section"><span class="header-section-number">8.12</span> ——</h2>
+</section>
+<section id="median-mad_sd" class="level2" data-number="8.13">
+<h2 data-number="8.13" class="anchored" data-anchor-id="median-mad_sd"><span class="header-section-number">8.13</span> Median MAD_SD</h2>
+</section>
+<section id="intercept-154.6-0.3" class="level2" data-number="8.14">
+<h2 data-number="8.14" class="anchored" data-anchor-id="intercept-154.6-0.3"><span class="header-section-number">8.14</span> (Intercept) 154.6 0.3</h2>
+</section>
+<section id="weight_c-0.9-0.0" class="level2" data-number="8.15">
+<h2 data-number="8.15" class="anchored" data-anchor-id="weight_c-0.9-0.0"><span class="header-section-number">8.15</span> weight_c 0.9 0.0</h2>
+</section>
+<section id="section-1" class="level2" data-number="8.16">
+<h2 data-number="8.16" class="anchored" data-anchor-id="section-1"><span class="header-section-number">8.16</span> </h2>
+</section>
+<section id="auxiliary-parameters" class="level2" data-number="8.17">
+<h2 data-number="8.17" class="anchored" data-anchor-id="auxiliary-parameters"><span class="header-section-number">8.17</span> Auxiliary parameter(s):</h2>
+</section>
+<section id="median-mad_sd-1" class="level2" data-number="8.18">
+<h2 data-number="8.18" class="anchored" data-anchor-id="median-mad_sd-1"><span class="header-section-number">8.18</span> Median MAD_SD</h2>
+</section>
+<section id="sigma-5.1-0.2" class="level2" data-number="8.19">
+<h2 data-number="8.19" class="anchored" data-anchor-id="sigma-5.1-0.2"><span class="header-section-number">8.19</span> sigma 5.1 0.2</h2>
+<p>Betrachten Sie wieder folgende Beziehung (Gleichung bzw. Ungleichung):</p>
+<p><span class="math display">\[Pr(\text{height}_i = 155|\text{weightcentered}_i=0, \alpha, \beta, \sigma) \quad \Box \quad Pr(\text{height}_i = 156|\text{weightcentered}_i=0, \alpha, \beta, \sigma)\]</span></p>
+<p>Die in der obigen Beziehung angegebenen Parameter beziehen sich auf das oben dargestellt Modell.</p>
+<p>Ergänzen Sie das korrekte Zeichen in das Rechteck <span class="math inline">\(\Box\)</span> !</p>
+<p>Answerlist * <span class="math inline">\(\lt\)</span> * <span class="math inline">\(\le\)</span> * <span class="math inline">\(\gt\)</span> * <span class="math inline">\(\ge\)</span> * <span class="math inline">\(=\)</span> ### L</p>
+<p>Richtig ist: <span class="math inline">\(\gt\)</span> Antwort: Der erste Teil der Gleichung gibt die Wahrscheinlichkeit für den Punktschätzer der AV an, wenn der Regressionkoeffizient den Wert x = 0 aufweist. Es soll also die Wahrscheinlichkeit dafür angegeben werden, dass der Wert einer Beobachtung 155 ist. Der zweite Teil der Gleichung liest sich genauso, bloß dass hier die Wahrscheinlichkeit dafür berechnet werden soll, dass der Wert einer Beobachtung 156 ist. Schauen wir also jetzt oben in den Output, dann sehen wir, dass der Intercept = 154.6 ist. Also ist die Wahrscheinlichkeit größer für den Wert 155, denn dieser Wert liegt näher am wahren Wert 154.6 als der Wert 156.</p>
+</section>
+</div>
+</div>
+</div>
+</section>
+<section id="mtcars-2" class="level2" data-number="8.20">
+<h2 data-number="8.20" class="anchored" data-anchor-id="mtcars-2"><span class="header-section-number">8.20</span> mtcars 2</h2>
+<p>Untersucht wird der Effekt des Gewichts (wt) und des Schaltgetriebes (am) auf den Spritverbrauch (mpg) eines Autos.</p>
+<section id="mtcars-2-a" class="level3" data-number="8.20.1">
+<h3 data-number="8.20.1" class="anchored" data-anchor-id="mtcars-2-a"><span class="header-section-number">8.20.1</span> mtcars 2 a)</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-11-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-1" role="tab" aria-controls="tabset-11-1" aria-selected="true">A2 a)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-11-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-2" role="tab" aria-controls="tabset-11-2" aria-selected="false">L2 a)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-11-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-11-1-tab">
+<p>Wie groß ist der Unterschied im Spritverbrauch zwischen einem Auto mit Automatik-Schaltung im Vergleich zu einem Auto mit manuellem Schaltgetriebe, wenn der Effekt aller anderen Prädiktoren null ist?</p>
+</div>
+<div id="tabset-11-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-11-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">stan_glm</span>(mpg <span class="sc">~</span> wt <span class="sc">+</span> am, <span class="at">data =</span> mtcars,</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">seed =</span> <span class="dv">42</span>,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">refresh =</span> <span class="dv">0</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Median"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["pd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Rhat"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ESS"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Prior_Distribution"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Prior_Location"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Prior_Scale"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"37.36134241","3":"0.95","4":"30.756061","5":"43.513351","6":"1.0000","7":"1.000814","8":"2030.603","9":"normal","10":"20.09062","11":"15.06737"},{"1":"wt","2":"-5.36647599","3":"0.95","4":"-6.939695","5":"-3.704211","6":"1.0000","7":"1.001165","8":"2058.740","9":"normal","10":"0.00000","11":"15.39911"},{"1":"am","2":"-0.03235016","3":"0.95","4":"-3.099269","5":"3.251339","6":"0.5105","7":"1.000266","8":"2220.202","9":"normal","10":"0.00000","11":"30.19568"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Der Intercept zeigt uns den Punktschätzer für den mittleren Spritverbrauch für ein Auto ohne Gewicht mit manuellem Schaltgetriebe an. in der Zeile am können wir ablesen, um wieviele Gallonen pro Meile sich der Spritverbrauch von Automatik-Getrieben davon unterscheidet. Das sind 0,03 Gallonen. Da die Ausgabe von paramerts den Effekt der einzelnen Koeffizienten anzeigt unter der Bedingung, dass der Effekt aller anderen Koeffizienten null sind, ist das auch gleichzeitig die gesuchte Zahl.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="mtcars-2-b" class="level3" data-number="8.20.2">
+<h3 data-number="8.20.2" class="anchored" data-anchor-id="mtcars-2-b"><span class="header-section-number">8.20.2</span> mtcars 2 b)</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-12-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-1" role="tab" aria-controls="tabset-12-1" aria-selected="true">A2 b)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-12-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-2" role="tab" aria-controls="tabset-12-2" aria-selected="false">L2 b)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-12-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-12-1-tab">
+<p>Ist der Unterschied zwischen Autos mit Automatik vs.&nbsp;manueller Schaltung in Bezug auf den Effekt vom Gewicht auf den Spritverbrauch eines Autos vernachlässigbar klein?</p>
+</div>
+<div id="tabset-12-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-12-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">stan_glm</span>(mpg <span class="sc">~</span> wt <span class="sc">+</span> am <span class="sc">+</span> wt<span class="sc">:</span>am, <span class="at">data =</span> mtcars,</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">seed =</span> <span class="dv">42</span>,</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">refresh =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rope</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["CI"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["ROPE_low"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["ROPE_high"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["ROPE_Percentage"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Effects"],"name":[6],"type":["chr"],"align":["left"]},{"label":["Component"],"name":[7],"type":["chr"],"align":["left"]}],"data":[{"1":"(Intercept)","2":"0.95","3":"-0.6026948","4":"0.6026948","5":"0","6":"fixed","7":"conditional","_rn_":"1"},{"1":"wt","2":"0.95","3":"-0.6026948","4":"0.6026948","5":"0","6":"fixed","7":"conditional","_rn_":"3"},{"1":"am","2":"0.95","3":"-0.6026948","4":"0.6026948","5":"0","6":"fixed","7":"conditional","_rn_":"2"},{"1":"wt:am","2":"0.95","3":"-0.6026948","4":"0.6026948","5":"0","6":"fixed","7":"conditional","_rn_":"4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">rope</span>(m2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Aufg_Klausurvorbereitung_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Der Effekt ist dadurch, dass der Koeffizient wt:am zu 0% im ROPE liegt, relevant und damit nicht vernachlässigbar klein. Dass ein Interaktionseffekt besteht, sieht man auch in folgendem Streudiagramm: Der Spritverbrauch von Autos mit Automatik-Schaltung sinkt mit abnehmendem Gewicht deutlich stärker, als der von Autos mit manueller Schaltung.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">am=</span><span class="fu">factor</span>(am)) <span class="sc">%&gt;%</span> </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg, <span class="at">color=</span> am)) <span class="sc">+</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_tableau</span>(<span class="st">"Nuriel Stone"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Aufg_Klausurvorbereitung_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Handle positioning of the toggle
+      window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
+          }
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Aufg_Metrische_AV.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Forschungsfragen mit metrischer AV</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

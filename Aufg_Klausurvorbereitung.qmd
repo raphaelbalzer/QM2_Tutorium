@@ -19,7 +19,7 @@ Penguins Datensatz: AV: `body_mass_g`\
 UV1: `flipper_length_mm`\
 UV2: `bill_length_mm`
 
-Modell aufstellen mit nur UV1 & Punktschätzer des Effekts angeben
+Stelle ein Modell auf, das den Zusammenhang zwischen der AV und UV1 untersucht und gib den Punktschätzer des Effekts an.
 
 #### L1 a)
 
@@ -35,7 +35,7 @@ Der Punktschätzer des Effekts (Effekt ist so zu verstehen, was hat einen Effekt
 ::: panel-tabset
 ### Aufgabe b)
 
-Punktschätzer für eine Beobachtung angeben, bei der alle Regressionskoeffizienten den Wert 0 aufweisen
+Gib den Punktschätzer für eine Beobachtung an, bei der alle Regressionskoeffizienten den Wert 0 aufweisen.
 
 ### L1b
 
@@ -49,7 +49,7 @@ Alle Regressionskoeffizienten sind 0, bedeutet dass alle UVs auf 0 gesetzt werde
 ::: panel-tabset
 ### Aufgabe c)
 
-Breite des 90% HDI-Intervalls für den Effekt angeben
+Gib die Breite des 90% HDI-Intervalls für den Effekt an.
 
 ### L1c
 

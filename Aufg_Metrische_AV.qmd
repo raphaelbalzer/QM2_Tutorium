@@ -213,18 +213,6 @@ Beziehen Sie für die folgende Aufgabe den Datensatz penguins von dieser Plattfo
 ::: panel-tabset
 #### A2 c)
 
-Berechnen Sie das folgende Modell
-
-AV - body_mass_g UVs - island, bill_length_mm
-
-Im Folgenden wird der Prädiktor island genauer betrachtet.
-
-Wie groß ist der Anteil der Verteilung der Torgersen-Insel, der innerhalb des ROPEs liegt?
-
-(Runden Sie auf zwei Stellen)
-
-#### L2 c)
-
 Berechnen Sie folgendes Modell:
 
 AV - body_mass_g UV - bill_length_mm
@@ -235,6 +223,9 @@ Was ist der Wert des Punktschätzers für eine Beobachtung, bei der alle Prädik
 -   1339.7
 -   633.4
 -   265.3
+
+#### L2 c)
+
 
 ```{r, class='floating-code'}
 set.seed(42)

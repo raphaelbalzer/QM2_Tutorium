@@ -2,6 +2,10 @@
 
 Nehmt euch als Zeit ungefähr 5 min pro Aufgabe.
 
+::: callout-warning
+Hinweis: Achtung, die Ergebnisse können selbst mit set.seed() etwas variieren!
+:::
+
 ```{r, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(easystats)
@@ -92,16 +96,18 @@ Gib den Punktschätzer für den mittleren Wert des Körpergewichts eines Adelie-
 
 ```{r}
 # neue Tabelle mit nur Adelie-Pinguinen und dem Gewicht in Kilogramm erstellen
-penguins_c <-
-  penguins_c %>%
+penguins_adelie_c <-
+  penguins %>%
   filter(species == "Adelie") %>% 
+  drop_na() %>% 
+  mutate(flipper_length_mm_c = flipper_length_mm - mean(flipper_length_mm)) %>% 
   mutate(body_mass_kg = body_mass_g/1000)
 
-p2 <- stan_glm(body_mass_kg ~ flipper_length_mm_c, data = penguins_c, refresh = 0, seed = 42)
+p2 <- stan_glm(body_mass_kg ~ flipper_length_mm_c, data = penguins_adelie_c, refresh = 0, seed = 42)
 parameters(p2)
 ```
 
-Das mittlere Gewicht eines Adelie-Pinguins mit einer durchschnittlichen Flossenlänge beträgt 4.06 kg. (Adelie Pinguine scheinen im Durchschnitt etwas leichter zu sein als der Durchschnitt aller Pinguine.)
+Das mittlere Gewicht eines Adelie-Pinguins mit einer durchschnittlichen Flossenlänge beträgt 3.71 kg. (Adelie Pinguine scheinen im Durchschnitt etwas leichter zu sein als der Durchschnitt aller Pinguine.)
 :::
 
 ## rope4

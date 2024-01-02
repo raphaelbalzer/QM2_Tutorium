@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Raphael Balzer, Emilia Braun">
-<meta name="dcterms.date" content="2023-09-02">
 
-<title>QM2-Tutorium WiSe23/24</title>
+<title>QM2-Tutorium WiSe23/24 - 1&nbsp; Theorie zu DAGs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -32,7 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./DAGs.html" rel="next">
+<link href="./Aufg_Wahrscheinlichkeiten.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -64,6 +97,11 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -112,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Allgemeines</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./DAGs.html">Theorie</a></li><li class="breadcrumb-item"><a href="./DAGs.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Theorie zu DAGs</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -139,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Allgemeines</span></a>
   </div>
 </li>
@@ -154,7 +192,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./DAGs.html" class="sidebar-item-text sidebar-link">
+  <a href="./DAGs.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Theorie zu DAGs</span></span></a>
   </div>
 </li>
@@ -235,7 +273,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#allgemeines" id="toc-allgemeines" class="nav-link active" data-scroll-target="#allgemeines">Allgemeines</a></li>
+  <li><a href="#die-vier-atome-der-kausalanalyse" id="toc-die-vier-atome-der-kausalanalyse" class="nav-link active" data-scroll-target="#die-vier-atome-der-kausalanalyse"><span class="header-section-number">1.1</span> Die vier Atome der Kausalanalyse</a>
+  <ul class="collapse">
+  <li><a href="#die-konfundierung" id="toc-die-konfundierung" class="nav-link" data-scroll-target="#die-konfundierung"><span class="header-section-number">1.1.1</span> Die Konfundierung</a></li>
+  <li><a href="#die-kollision" id="toc-die-kollision" class="nav-link" data-scroll-target="#die-kollision"><span class="header-section-number">1.1.2</span> Die Kollision</a></li>
+  </ul></li>
+  <li><a href="#beispielaufgabe" id="toc-beispielaufgabe" class="nav-link" data-scroll-target="#beispielaufgabe"><span class="header-section-number">1.2</span> Beispielaufgabe</a></li>
+  <li><a href="#kausal03" id="toc-kausal03" class="nav-link" data-scroll-target="#kausal03"><span class="header-section-number">1.3</span> kausal03</a></li>
+  <li><a href="#kausal29" id="toc-kausal29" class="nav-link" data-scroll-target="#kausal29"><span class="header-section-number">1.5</span> kausal29</a></li>
+  <li><a href="#kausal28" id="toc-kausal28" class="nav-link" data-scroll-target="#kausal28"><span class="header-section-number">1.7</span> kausal28</a></li>
   </ul>
 </nav>
     </div>
@@ -244,26 +290,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">QM2-Tutorium WiSe23/24</h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Theorie zu DAGs</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Raphael Balzer, Emilia Braun </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 2, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -271,13 +305,249 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-
-<section id="allgemeines" class="level1 unnumbered">
-<h1 class="unnumbered">Allgemeines</h1><p><img src="golem.jpeg" title="QM2-Tutorium WiSe23/24" class="quarto-cover-image img-fluid"></p>
-<p>Herzlich Willkommen zum QM2-Tutorium! In diesem Semester lernt ihr alles rund um’s Thema Bayes-Statistik. Wie auch im letzten Tutorium findet ihr hier sämtliche Lehrmaterialien wie Aufgaben samt Lösungen, Fallstudien, wichtige Befehle und nützliche Links.</p>
-<p>Wir wünschen euch viel Erfolg!</p>
-<p>Liebe Grüße,</p>
-<p>Emilia und Raphael</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstanarm)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggdag)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dagitty)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>gg_simple_dag <span class="ot">&lt;-</span> <span class="cf">function</span>(d) {</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  d <span class="sc">%&gt;%</span> </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">xend =</span> xend, <span class="at">yend =</span> yend)) <span class="sc">+</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_dag_point</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">size =</span> <span class="fl">6.5</span>) <span class="sc">+</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_dag_text</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_dag_edges</span>() <span class="sc">+</span> </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_dag</span>()</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="die-vier-atome-der-kausalanalyse" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="die-vier-atome-der-kausalanalyse"><span class="header-section-number">1.1</span> Die vier Atome der Kausalanalyse</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-four-atoms" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="DAGs_files/figure-html/fig-four-atoms-1.png" class="img-fluid figure-img" width="864"></p>
+<figcaption class="figure-caption">Figure&nbsp;1.1: Die vier Atome der Kausalinferenz</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Aufgabe: Von x zu y, also die Wirkung von X auf Y</p>
+<section id="die-konfundierung" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="die-konfundierung"><span class="header-section-number">1.1.1</span> Die Konfundierung</h3>
+<p>Gabel, von einem Punkt gehen 2 Pfeile aus</p>
+<p>🚶 🕳️ 🏁 x &lt;———- z ———–&gt; y 🌉</p>
+<p>Vorstellung: Wir haben einen Pfad, der bei X startet und über z zu y führt. Man stelle sich vor, an der Stelle von z sei ein Loch, durch das Kontrollieren bauen wir eine Brücke bzw. schließen das Loch.</p>
+<p>–&gt; Damit schließt sich der Pfad</p>
+</section>
+<section id="die-kollision" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="die-kollision"><span class="header-section-number">1.1.2</span> Die Kollision</h3>
+<p>2 Pfeile treffen an einem Punkt aufeinander</p>
+<p>🚶 💣️ 🚫 x ———-&gt; m &lt;———– y 🌋</p>
+<p>Vorstellung: Wir haben einen Pfad, der bei X startet und über m zu y führt. Man stelle sich vor, an der Stelle von m explodiert die Straße (= Kollision), was tun wir jetzt? Wenn wir versuchen die Straße zu reparieren, also zu kontrollieren, explodiert m immer wieder, wir können uns vorstellen, dass z.B. ein Vulkan an der Stelle immer wieder ausbricht.</p>
+<p>–&gt; Hier dürfen wir auf keinen Fall kontrollieren, in diesem Fall lassen wir alles so, wie es ist.</p>
+</section>
+</section>
+<section id="beispielaufgabe" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="beispielaufgabe"><span class="header-section-number">1.2</span> Beispielaufgabe</h2>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DAGs_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Gegeben sei der DAG <code>g</code> (s. u.). Der DAG verfügt über r <code>dag_size</code> Variablen, die als Knoten im Graph dargestellt sind (mit <span class="math inline">\(x_1, x_2, \ldots x_n\)</span> bezeichnet) und über Kanten verbunden sind.</p>
+<p><em>Welche minimale Variablenmenge muss kontrolliert werden, um den kausalen Effekt von der UV zur AV zu identifizieren?</em></p>
+<p>UV: <code>x4</code>.</p>
+<p>AV: <code>x5</code>.</p>
+<p><em>Hinweise</em>:</p>
+<ul>
+<li>Mengen sind mittels geschweifter Klammern gekennzeichnet, z.B. <code>{x8, x9}</code> meint die Menge mit den zwei Elementen <code>x8</code> und <code>x9</code>.</li>
+<li>Die leere Menge <code>{ }</code> bedeutet, dass keine Variable kontrolliert werden muss, um den kausalen Effekt zu identifizieren.</li>
+<li>Alle Variablen werden als gemessen vorausgesetzt.</li>
+<li>Es ist möglich, dass es keine Lösung gibt, dass es also keine Adjustierungsmenge gibt, um den kausalen Effekt zu identifizieren. Wenn dies der Fall sein sollte, wählen Sie “keine Lösung”.</li>
+<li>Es ist möglich, dass einzelne Variablen keine Kanten besitzen, also keine Verbindung zu anderen Variablen (Knoten) haben.</li>
+</ul>
+<p>Vorgehen:</p>
+<ol type="1">
+<li>UV &amp; AV identifizieren</li>
+</ol>
+<p>UV ist bei diesem DAG <code>x4</code> und die AV ist <code>x5</code></p>
+<ol start="2" type="1">
+<li>Direkte kausale Pfade suchen</li>
+</ol>
+<p>In diesem DAG gibt es keine direkten kausalen Pfade, also keine Pfeile, die direkt von <code>x4</code> zu <code>x5</code> führen, bei denen die Pfeilrichtung korrekt ist und es über keine weiteren Variablen geht.</p>
+<ol start="3" type="1">
+<li>Mögliche Hinterpfade suchen</li>
+</ol>
+<p>Dieser DAG hat viele Hinterpfade, also Pfade, die von der UV über weitere Variablen zur AV führen.</p>
+<p>Ein Beispiel wäre der Pfad von <code>x4</code> über <code>x3</code>, <code>x1</code>, <code>x2</code> zu <code>x5</code>. Natürlich gibt es noch viel mehr Möglichkeiten.</p>
+<ol start="4" type="1">
+<li>Welche Pfade soll man schließen (= Konfundierung), welche soll man lassen (= Kollision)?</li>
+</ol>
+<p>Wichtig ist es hierbei jeden Pfad einzeln für sich zu betrachten und nur bei dem zu betrachtenden Pfad auf die Pfeilrichtungen zu schauen.</p>
+<p>Betrachtet man nun die Variable <code>x7</code>, dann sieht man, dass egal welchen Pfad man geht, bei <code>x7</code> immer eine Kollision entsteht. Also kann man alle Pfade, die über <code>x7</code> führen ausschließen und es darf nicht kontrolliert werden. <code>x6</code> ist damit auch ein Collider, da der einzige Pfad, der keine Kollision bei <code>x6</code> hat über <code>x7</code> führt, damit ist auch diese Variable ausgeschlossen.</p>
+<p>Suchen wir jetzt nach Confundern: Je nach Pfad, den man wählt kann jede andere Variable, also <code>x1</code>, <code>x2</code> und <code>x3</code> (denn <strong>UV und AV darf man nie kontrollieren</strong>), ein Confunder sein.</p>
+<p>Schauen wir uns ein Beispiel an: <code>x4</code> &lt;- <code>x1</code> -&gt; <code>x2</code> -&gt; <code>x5</code> Bei diesem Pfad wäre <code>x1</code> der Confunder.</p>
+<p><img src="DAG_Pfade.PNG" class="img-fluid" alt="DAG mit eingezeichneten Pfaden"> Alle Pfade mit Kollisionen sind hier rot gekennzeichnet, alle mit Confundern grün.</p>
+<ol start="5" type="1">
+<li>Die kleinste Menge finden</li>
+</ol>
+<p>Wie finden wir jetzt die minimale Menge an Variablen, die wir kontrollieren müssen, um alle Hintertürpfade zu schließen?</p>
+<p>Das Gute ist, dass sobald man einen Confunder auf einem Pfad hat, es total egal ist, welche “Zwischen”-Variable man kontrolliert.</p>
+<p>Hier anhand eines Beispiels: <code>x4</code> &lt;- <code>x1</code> -&gt; <code>x2</code> -&gt; <code>x5</code> Bei diesem Pfad wäre <code>x1</code> zwar der Confunder, aber wir können stattdessen auch <code>x2</code> kontrollieren, da es für den Pfad und das Ergebnis egal ist, ob wir <code>x1</code> oder <code>x2</code> kontrollieren.</p>
+<p>Genauso egal ist es, welchen Confunder man kontrolliert, wenn man mehrere Confunder auf einem Pfad hat, es reicht immer, <strong>nur einen</strong> zu kontrollieren.</p>
+<p>Schauen wir jetzt, über welche “Zwischen”-Variable alle Confunder-Pfade laufen müssen: in diesem Fall wäre das <code>x2</code>, also reicht es nur diese Variable zu kontrollieren, um alle Hintertürpfade zu schließen und den Effekt der UV auf die AV zu identifizieren.</p>
+</section>
+<section id="kausal03" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="kausal03"><span class="header-section-number">1.3</span> kausal03</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">A</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">L</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Gegeben sei der DAG <code>g</code> (s.u.). Was ist die minimale Menge an Variablen, die man kontrollieren muss, um den kausalen Effekt von <code>x</code> auf <code>y</code> zu identifizieren?</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DAGs_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Hinweise:</p>
+<ul>
+<li>Gebogene Kurven mit doppelter Pfeilspitze zeigen <em>keine</em> Kausaleinflüsse ein (was in DAGs nicht erlaubt wäre).</li>
+<li>Stattdessen zeigen Sie eine Assoziation bedingt durch eine (nicht aufgeführte) Konfundierungsvariable an.</li>
+</ul>
+<section id="answerlist" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="answerlist"><span class="header-section-number">1.4</span> Answerlist</h2>
+<ul>
+<li>{ w1, w2, z2 }</li>
+<li>{ w2, z2 }</li>
+<li>{ w1, w2 }</li>
+<li>{ w1, z2 }</li>
+<li>{ w1 }</li>
+</ul>
+</section>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Wir haben einen direkten kausalen Pfad zwischen <code>x</code> und <code>y</code> Ignorieren wir erstmal die gebogenen Pfeile und schauen uns dann zu allererst die Pfade an, die nur über eine Zwischenvariable führen. Hier sehen wir, dass es nur 2 Möglichkeiten gibt, einmal über <code>w1</code> und über <code>w2</code>, beides sind Confunder, also müssen wir beide auf jeden Fall kontrollieren.</p>
+<p>Wir haben 2 Collider Pfade, einmal von <code>x</code> über <code>w1</code>, <code>z1</code>, <code>v</code>, <code>z2</code> zu <code>y</code> und von <code>x</code> über <code>z1</code>, <code>v</code>, <code>z2</code>, <code>w2</code> zu <code>y</code> (würden wir die beiden Pfade zu einem großen kombinieren hätten wir theoretisch sogar noch einen Collider-Pfad). Diese Pfade können wir also von unseren Überlegungen ausschließen.</p>
+<p>Suchen wir jetzt noch nach Confunder-Pfaden, die nicht über <code>w1</code> oder <code>w2</code> führen. Es bleibt nur ein Pfad übrig (von <code>x</code> über <code>z1</code>, <code>v</code>, <code>z2</code> zu <code>y</code>). Der Confunder wäre hier <code>v</code>, jedoch gibt es diese Antwortmöglichkeit nicht. Wie jedoch vorher erklärt, ist es egal welche Zwischenvariable wir auf einem Confunder-Pfaf kontrollieren, hauptsachen wir kontrollieren eine. Für diesen Pfad ist es also egal, ob wir <code>z1</code>, <code>v</code> oder <code>z2</code> kontrollieren.</p>
+<p>Die Lösung wäre also: { w1, w2, z2 }</p>
+<p>Genauso richtig wäre aber auch: { w1, w2, z1 } { w1, w2, v }</p>
+</div>
+</div>
+</div>
+</section>
+<section id="kausal29" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="kausal29"><span class="header-section-number">1.5</span> kausal29</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">A</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">L</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Gegeben sei der DAG (Graph) <code>g</code> (s. u.). Der DAG verfügt über mehrere Variablen, die als Knoten im Graph dargestellt sind.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dagify</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    y <span class="sc">~</span> z <span class="sc">+</span> m,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    m <span class="sc">~</span> x <span class="sc">+</span> z,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">exposure =</span> <span class="st">"x"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">outcome =</span> <span class="st">"y"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Hier ist die Definition des DAGs:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>dag {
+m
+x [exposure]
+y [outcome]
+z
+m -&gt; y
+x -&gt; m
+z -&gt; m
+z -&gt; y
+}</code></pre>
+</div>
+</div>
+<p>Und so sieht er aus:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggdag</span>(f) <span class="sc">+</span> <span class="fu">theme_dag_blank</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="DAGs_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><em>Welche minimale Variablenmenge muss kontrolliert werden, um den kausalen Effekt von der UV zur AV zu identifizieren?</em></p>
+<p>UV: x</p>
+<p>AV: y</p>
+<p><em>Hinweise</em>:</p>
+<ul>
+<li>Mengen sind mittels geschweifter Klammern gekennzeichnet, z.B. <code>{x8, x9}</code> meint die Menge mit den zwei Elementen <code>x8</code> und <code>x9</code>.</li>
+<li>Die leere Menge <code>{ }</code> bedeutet, dass keine Variable kontrolliert werden muss, um den kausalen Effekt zu identifizieren.</li>
+<li>Alle Variablen werden als gemessen vorausgesetzt.</li>
+<li>Es ist möglich, dass es keine Lösung gibt, dass es also keine Adjustierungsmenge gibt, um den kausalen Effekt zu identifizieren. Wenn dies der Fall sein sollte, wählen Sie “keine Lösung”.</li>
+</ul>
+<section id="answerlist-1" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="answerlist-1"><span class="header-section-number">1.6</span> Answerlist</h2>
+<ul>
+<li>{m}</li>
+<li>{z}</li>
+<li>{m, z}</li>
+<li>{ }</li>
+<li>keine Lösung</li>
+</ul>
+</section>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>Man sieht direkt, dass man immer über <code>m</code> gehen muss, um zu <code>y</code> zu gelangen. Betrachtet man den Pfad von <code>x</code> über <code>m</code> zu <code>y</code>, dann sieht man, dass <code>m</code> hier ein Mediator ist, diese muss man nicht kontrollieren. Der zweite mögliche Pfad führt über <code>m</code> und <code>z</code>, jedoch liegt hier bei <code>m</code> ein Collider vor, deswegen dürfen wir in dem Fall weder <code>m</code> noch <code>z</code> kontrollieren.</p>
+<p>Die Lösung ist also: { }, da wir keine Variable kontrollieren müssen, um den Effekt von <code>x</code> auf <code>y</code> zu identifizieren.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="kausal28" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="kausal28"><span class="header-section-number">1.7</span> kausal28</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">A</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">L</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DAGs_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Gegeben sei der DAG <code>g</code> (s. u.). Der DAG verfügt über mehrere Variablen, die als Knoten im Graph dargestellt sind und mit <span class="math inline">\(x_1, x_2, \ldots x_n\)</span> bezeichnet sind.</p>
+<p><em>Welche minimale Variablenmenge muss kontrolliert werden, um den kausalen Effekt von der UV zur AV zu identifizieren?</em></p>
+<p>UV: <code>x7</code>.</p>
+<p>AV: <code>x8</code>.</p>
+<p><em>Hinweise</em>:</p>
+<ul>
+<li>Mengen sind mittels geschweifter Klammern gekennzeichnet, z.B. <code>{x8, x9}</code> meint die Menge mit den zwei Elementen <code>x8</code> und <code>x9</code>.</li>
+<li>Die leere Menge <code>{ }</code> bedeutet, dass keine Variable kontrolliert werden muss, um den kausalen Effekt zu identifizieren.</li>
+<li>Alle Variablen werden als gemessen vorausgesetzt.</li>
+<li>Es ist möglich, dass es keine Lösung gibt, dass es also keine Adjustierungsmenge gibt, um den kausalen Effekt zu identifizieren. Wenn dies der Fall sein sollte, wählen Sie “keine Lösung”.</li>
+</ul>
+<section id="answerlist-2" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="answerlist-2"><span class="header-section-number">1.8</span> Answerlist</h2>
+<ul>
+<li>{ x1 , x2 , x3 , x4 , x5 , x6 }</li>
+<li>{ x3, x4 }</li>
+<li>{ x8 }</li>
+<li>{ x6, x7 }</li>
+<li>{ x2, x5 }</li>
+</ul>
+</section>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>Der DAG wirkt auf den ersten Blick sehr überfordernd, aber ist gar nicht schwer zu lösen. Es gibt einen direkten kausalen Pfad von <code>x7</code> auf <code>x8</code>. Schaut man sich den DAG jetzt genauer an, dann sieht man dass es für jede Zwischenvariable einen einzelnen Pfad gibt, heißt z.B. es gibt einen einzelnen Pfad der nur über <code>x5</code> oder nur über <code>x3</code> führt. Alle diese Variablen sinf für diese Pfade auch Confunder, also müssen wir alle Zwischenvariablen kontrollieren.</p>
+<p>Die Lösung ist also: { x1 , x2 , x3 , x4 , x5 , x6 }</p>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -698,10 +968,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Allgemeines</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./DAGs.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Theorie zu DAGs</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Aufg_Wahrscheinlichkeiten.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Wahrscheinlichkeiten</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

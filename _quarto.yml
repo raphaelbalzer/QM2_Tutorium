@@ -24,6 +24,9 @@ book:
         href: https://qm2-tutorium.netlify.app/
   chapters:
     - index.qmd
+    - part: "Theorie"
+      chapters: 
+        - DAGs.qmd
     - part: "Aufgaben"
       chapters:
         - Aufg_Wahrscheinlichkeiten.qmd

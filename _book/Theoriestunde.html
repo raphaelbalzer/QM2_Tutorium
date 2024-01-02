@@ -375,13 +375,13 @@ P(p|W,L)=\dfrac{P(p)\times P(W,L|p)}{P(W,L)}
 <p>Einn weitere Methode, bei der das Bayes-Theorem Anwendung findet, ist die lineare Regression. Dieses Thema sollte noch aus der Schule und Statstik 1 ausreichend bekannt sein. Hier trotzdem nochmal die Formel:</p>
 <p><span class="math display">\[
 y_{i}=\alpha+\beta x_{i}
-\]</span> Jeder Wert für <span class="math inline">\(y\)</span> (das bedeutet das Index <span class="math inline">\(i\)</span>) ist das Ergebnis des Achsenabschnitts <span class="math inline">\(\alpha\)</span> plus der Steigung <span class="math inline">\(\beta\)</span> mal den jeweiligen <span class="math inline">\(x\)</span>-Wert. Jedem <span class="math inline">\(x\)</span>-Wert entspricht also einem <span class="math inline">\(y\)</span>-Wert So sieht das ganze dann anhand des Kung-Datensatzes aus, wenn <span class="math inline">\(y\)</span> Körpergröße und <span class="math inline">\(x\)</span> Körpergewicht ist:</p>
+\]</span> Jeder Wert für <span class="math inline">\(y\)</span> (das bedeutet das Index <span class="math inline">\(i\)</span>) ist das Ergebnis des Achsenabschnitts <span class="math inline">\(\alpha\)</span> plus der Steigung <span class="math inline">\(\beta\)</span> mal den jeweiligen <span class="math inline">\(x\)</span>-Wert. Jedem <span class="math inline">\(x\)</span>-Wert entspricht also einem <span class="math inline">\(y\)</span>-Wert. So sieht das ganze dann anhand des Kung-Datensatzes aus, wenn <span class="math inline">\(y\)</span> Körpergröße und <span class="math inline">\(x\)</span> Körpergewicht ist:</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="Theoriestunde_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Der y-Achsenabschnitt sagt uns jetzt aber nur aus, wie groß ein Mensch mit dem Gewicht von 0 kg ist. Um sinnvolle Priors zu formulieren, ist es hilfreich, direkt ein Modell aufzustellen, dass mit dem zentrierten Körpergewicht arbeitet, denn wenn wir von allen Gewichten den Mittelwert abziehen, wird der Mittelwert an die Stelle, an der 0 war verschoben. Dadurch zeigt der y-Achsenabschnitt die Körpergröße eines durchschnittlich schweren Kung an:</p>
+<p>Der y-Achsenabschnitt sagt uns jetzt aber nur aus, wie groß ein Mensch mit dem Gewicht von 0 kg ist. Um sinnvolle Priors zu formulieren, ist es hilfreich, direkt ein Modell aufzustellen, das mit dem zentrierten Körpergewicht arbeitet, denn wenn wir von allen Gewichten den Mittelwert abziehen, wird der Mittelwert an die Stelle, an der 0 war, verschoben. Dadurch zeigt der y-Achsenabschnitt die Körpergröße eines durchschnittlich schweren Kung an:</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="Theoriestunde_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
@@ -392,7 +392,7 @@ y_{i}=\alpha+\beta x_{i}
 y_i\sim Normal(\mu_{i},\sigma)\\
 \mu_{i}=\alpha+\beta x_{i}
 \end{aligned}
-\]</span> Um noch mehr Vorwissen in die Regression einfließen zu lassen, spezifizieren wir die Modellparameter in Form des Priors. Wir können nämlich unser Vorwissen zur Körpergröße eines durchscnittlich schweren Kung angeben. Wir gehen davon aus, dass diese Körpergröße bei ca. 140 cm liegt, aber auch ein bisschen darüber oder darunter liegen kann. Um diese Unsicherheit zu quantifizieren geben wir eine Verteilung mit einer sinnvollen Streuung an, zum Beispiel <span class="math inline">\(N(140, 10)\)</span>. Außerdem gehen wir von einer positiven linearen Beziehung aus, also dass ein Mensch mit höherem Gewicht auch größer ist. Das heißt, um den besten Wert für die Steigung <span class="math inline">\(\beta\)</span> zu bestimmen, wollen wir mögliche Werte aus einer Verteilung ziehen, die nur positive Werte zulässt, wie zum Beispiel <span class="math inline">\(N(5,3)\)</span>. Die Streuung <span class="math inline">\(\sigma\)</span> muss auch zwingend positiv sein, weil es keine negative Streuung geben kann. Deshalb ziehen wir hier aus einer Exponentialverteilung. Unsere Modellspezifikation sieht also wie folgt aus: <span class="math display">\[
+\]</span> Um noch mehr Vorwissen in die Regression einfließen zu lassen, spezifizieren wir die Modellparameter in Form des Priors. Wir können nämlich unser Vorwissen zur Körpergröße eines durchschnittlich schweren Kung angeben. Wir gehen davon aus, dass diese Körpergröße bei ca. 140 cm liegt, aber auch ein bisschen darüber oder darunter liegen kann. Um diese Unsicherheit zu quantifizieren, geben wir eine Verteilung mit einer sinnvollen Streuung an, zum Beispiel <span class="math inline">\(N(140, 10)\)</span>. Außerdem gehen wir von einer positiven linearen Beziehung aus, also dass ein Mensch mit höherem Gewicht auch größer ist. Das heißt, um den besten Wert für die Steigung <span class="math inline">\(\beta\)</span> zu bestimmen, wollen wir mögliche Werte aus einer Verteilung ziehen, die nur positive Werte zulässt, wie zum Beispiel <span class="math inline">\(N(5,3)\)</span>. Die Streuung <span class="math inline">\(\sigma\)</span> muss auch zwingend positiv sein, weil es keine negative Streuung geben kann. Deshalb ziehen wir hier aus einer Exponentialverteilung. Unsere Modellspezifikation sieht also wie folgt aus: <span class="math display">\[
 \begin{aligned}
 y_i\sim Normal(\mu_{i},\sigma)\\
 \mu_{i}=\alpha+\beta x_{i}\\
@@ -400,7 +400,7 @@ y_i\sim Normal(\mu_{i},\sigma)\\
 \beta \sim Normal(5,3)\\
 \sigma \sim Exp(0.1)
 \end{aligned}
-\]</span> Jetzt haben wir alle Prior-Parameter festgelegt. Aber was bedeutet das jetzt genau? Wir haben jetzt quasi einen Topf voll Zutaten, aus dem wir zufällig irgendwelche Zutaten ziehen und zusammenmischen. Zum Beispiel könnte ein Gericht, was dann ensteht, folgende Gleichung sein: <span class="math display">\[
+\]</span> Nun haben wir alle Prior-Parameter festgelegt. Aber was bedeutet das genau? Wir haben jetzt quasi einen Topf voll Zutaten, aus dem wir zufällig irgendwelche Zutaten ziehen und zusammenmischen. Zum Beispiel könnte ein Gericht, was dann ensteht, folgende Gleichung sein: <span class="math display">\[
 \begin{aligned}
 y_i\sim Normal(\mu_{i},10)\\
 \mu=148+3x
@@ -411,7 +411,7 @@ y_i\sim Normal(\mu_{i},10)\\
 <p><img src="Theoriestunde_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Jedes Gericht, was aus einer zufälligen Ziehung aus dem Topf entsteht, ist eine Hypohtese. Wie immer wollen wir natürlich eine Hypothese unter Einbeziehung von Daten überprüfen. In diesem Fall sind die Daten das Gewicht und die Größe der Kung-Menschen. Um die Wahrscheinlichkeit für jede mögliche Kombination aller möglichen Modellparameter auszurechnen, multiplizieren wir wieder unser Vorwissen, also die Modellspezifikation mit dem Likelihood, also der Wahrscheinlichkeit, unsere Datenlage zu den Gewichten und Größen zu beobachten, unter der Bedingung dass unsere Priors zutreffen. Das ist quasi die Endform des Bayes-Theorems, aus dessen Postverteilung dann Stichproben für unseren <code>stan_glm</code> gezogen werden: <span class="math display">\[
+<p>Jedes Gericht, was aus einer zufälligen Ziehung aus dem Topf entsteht, ist eine Hypohtese. Wie immer wollen wir natürlich eine Hypothese unter Einbeziehung von Daten überprüfen. In diesem Fall sind die Daten das Gewicht und die Größe der Kung-Menschen. Um die Wahrscheinlichkeit für jede mögliche Kombination aller möglichen Modellparameter auszurechnen, multiplizieren wir wieder unser Vorwissen, also die Modellspezifikation mit dem Likelihood, also der Wahrscheinlichkeit, die Kung-Daten zu beobachten, unter der Bedingung dass unsere Priors zutreffen. Das ist quasi die Endform des Bayes-Theorems, aus dessen Postverteilung dann Stichproben für unseren <code>stan_glm</code> gezogen werden: <span class="math display">\[
 P(\alpha, \beta, \sigma |H,W) = \dfrac{P(\alpha, \beta, \sigma)\times P(H,W|\alpha, \beta, \sigma)}{P(H,W)}
 \]</span></p>
 

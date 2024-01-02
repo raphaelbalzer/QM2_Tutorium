@@ -67,7 +67,7 @@ Einn weitere Methode, bei der das Bayes-Theorem Anwendung findet, ist die linear
 
 $$
 y_{i}=\alpha+\beta x_{i}
-$$ Jeder Wert für $y$ (das bedeutet das Index $i$) ist das Ergebnis des Achsenabschnitts $\alpha$ plus der Steigung $\beta$ mal den jeweiligen $x$-Wert. Jedem $x$-Wert entspricht also einem $y$-Wert So sieht das ganze dann anhand des Kung-Datensatzes aus, wenn $y$ Körpergröße und $x$ Körpergewicht ist:
+$$ Jeder Wert für $y$ (das bedeutet das Index $i$) ist das Ergebnis des Achsenabschnitts $\alpha$ plus der Steigung $\beta$ mal den jeweiligen $x$-Wert. Jedem $x$-Wert entspricht also einem $y$-Wert. So sieht das ganze dann anhand des Kung-Datensatzes aus, wenn $y$ Körpergröße und $x$ Körpergewicht ist:
 
 ```{r echo=FALSE, message=FALSE}
 kung <- read.csv("https://raw.githubusercontent.com/sebastiansauer/Lehre/main/data/Howell1a.csv") %>% 
@@ -84,7 +84,7 @@ p1 <- ggplot(kung, aes(weight, height)) +
 p1 + expand_limits(x=0, y=100)
 ```
 
-Der y-Achsenabschnitt sagt uns jetzt aber nur aus, wie groß ein Mensch mit dem Gewicht von 0 kg ist. Um sinnvolle Priors zu formulieren, ist es hilfreich, direkt ein Modell aufzustellen, dass mit dem zentrierten Körpergewicht arbeitet, denn wenn wir von allen Gewichten den Mittelwert abziehen, wird der Mittelwert an die Stelle, an der 0 war verschoben. Dadurch zeigt der y-Achsenabschnitt die Körpergröße eines durchschnittlich schweren Kung an:
+Der y-Achsenabschnitt sagt uns jetzt aber nur aus, wie groß ein Mensch mit dem Gewicht von 0 kg ist. Um sinnvolle Priors zu formulieren, ist es hilfreich, direkt ein Modell aufzustellen, das mit dem zentrierten Körpergewicht arbeitet, denn wenn wir von allen Gewichten den Mittelwert abziehen, wird der Mittelwert an die Stelle, an der 0 war, verschoben. Dadurch zeigt der y-Achsenabschnitt die Körpergröße eines durchschnittlich schweren Kung an:
 
 ```{r echo=FALSE, message=FALSE}
 lm_model_c <- lm(height ~ weight_c, data = kung)
@@ -100,7 +100,7 @@ Jetzt kommt Bayes in's Spiel. Bei der Bayesianischen linearen Regression gehen w
 y_i\sim Normal(\mu_{i},\sigma)\\
 \mu_{i}=\alpha+\beta x_{i}
 \end{aligned}
-$$ Um noch mehr Vorwissen in die Regression einfließen zu lassen, spezifizieren wir die Modellparameter in Form des Priors. Wir können nämlich unser Vorwissen zur Körpergröße eines durchscnittlich schweren Kung angeben. Wir gehen davon aus, dass diese Körpergröße bei ca. 140 cm liegt, aber auch ein bisschen darüber oder darunter liegen kann. Um diese Unsicherheit zu quantifizieren geben wir eine Verteilung mit einer sinnvollen Streuung an, zum Beispiel $N(140, 10)$. Außerdem gehen wir von einer positiven linearen Beziehung aus, also dass ein Mensch mit höherem Gewicht auch größer ist. Das heißt, um den besten Wert für die Steigung $\beta$ zu bestimmen, wollen wir mögliche Werte aus einer Verteilung ziehen, die nur positive Werte zulässt, wie zum Beispiel $N(5,3)$. Die Streuung $\sigma$ muss auch zwingend positiv sein, weil es keine negative Streuung geben kann. Deshalb ziehen wir hier aus einer Exponentialverteilung. Unsere Modellspezifikation sieht also wie folgt aus: $$
+$$ Um noch mehr Vorwissen in die Regression einfließen zu lassen, spezifizieren wir die Modellparameter in Form des Priors. Wir können nämlich unser Vorwissen zur Körpergröße eines durchschnittlich schweren Kung angeben. Wir gehen davon aus, dass diese Körpergröße bei ca. 140 cm liegt, aber auch ein bisschen darüber oder darunter liegen kann. Um diese Unsicherheit zu quantifizieren, geben wir eine Verteilung mit einer sinnvollen Streuung an, zum Beispiel $N(140, 10)$. Außerdem gehen wir von einer positiven linearen Beziehung aus, also dass ein Mensch mit höherem Gewicht auch größer ist. Das heißt, um den besten Wert für die Steigung $\beta$ zu bestimmen, wollen wir mögliche Werte aus einer Verteilung ziehen, die nur positive Werte zulässt, wie zum Beispiel $N(5,3)$. Die Streuung $\sigma$ muss auch zwingend positiv sein, weil es keine negative Streuung geben kann. Deshalb ziehen wir hier aus einer Exponentialverteilung. Unsere Modellspezifikation sieht also wie folgt aus: $$
 \begin{aligned}
 y_i\sim Normal(\mu_{i},\sigma)\\
 \mu_{i}=\alpha+\beta x_{i}\\
@@ -108,7 +108,7 @@ y_i\sim Normal(\mu_{i},\sigma)\\
 \beta \sim Normal(5,3)\\
 \sigma \sim Exp(0.1)
 \end{aligned}
-$$ Jetzt haben wir alle Prior-Parameter festgelegt. Aber was bedeutet das jetzt genau? Wir haben jetzt quasi einen Topf voll Zutaten, aus dem wir zufällig irgendwelche Zutaten ziehen und zusammenmischen. Zum Beispiel könnte ein Gericht, was dann ensteht, folgende Gleichung sein: $$
+$$ Nun haben wir alle Prior-Parameter festgelegt. Aber was bedeutet das genau? Wir haben jetzt quasi einen Topf voll Zutaten, aus dem wir zufällig irgendwelche Zutaten ziehen und zusammenmischen. Zum Beispiel könnte ein Gericht, was dann ensteht, folgende Gleichung sein: $$
 \begin{aligned}
 y_i\sim Normal(\mu_{i},10)\\
 \mu=148+3x
@@ -122,6 +122,6 @@ ggplot(kung, aes(x = weight_c, y = height)) +
   theme_minimal()
 ```
 
-Jedes Gericht, was aus einer zufälligen Ziehung aus dem Topf entsteht, ist eine Hypohtese. Wie immer wollen wir natürlich eine Hypothese unter Einbeziehung von Daten überprüfen. In diesem Fall sind die Daten das Gewicht und die Größe der Kung-Menschen. Um die Wahrscheinlichkeit für jede mögliche Kombination aller möglichen Modellparameter auszurechnen, multiplizieren wir wieder unser Vorwissen, also die Modellspezifikation mit dem Likelihood, also der Wahrscheinlichkeit, unsere Datenlage zu den Gewichten und Größen zu beobachten, unter der Bedingung dass unsere Priors zutreffen. Das ist quasi die Endform des Bayes-Theorems, aus dessen Postverteilung dann Stichproben für unseren `stan_glm` gezogen werden: $$
+Jedes Gericht, was aus einer zufälligen Ziehung aus dem Topf entsteht, ist eine Hypohtese. Wie immer wollen wir natürlich eine Hypothese unter Einbeziehung von Daten überprüfen. In diesem Fall sind die Daten das Gewicht und die Größe der Kung-Menschen. Um die Wahrscheinlichkeit für jede mögliche Kombination aller möglichen Modellparameter auszurechnen, multiplizieren wir wieder unser Vorwissen, also die Modellspezifikation mit dem Likelihood, also der Wahrscheinlichkeit, die Kung-Daten zu beobachten, unter der Bedingung dass unsere Priors zutreffen. Das ist quasi die Endform des Bayes-Theorems, aus dessen Postverteilung dann Stichproben für unseren `stan_glm` gezogen werden: $$
 P(\alpha, \beta, \sigma |H,W) = \dfrac{P(\alpha, \beta, \sigma)\times P(H,W|\alpha, \beta, \sigma)}{P(H,W)}
 $$

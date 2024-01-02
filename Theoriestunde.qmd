@@ -76,10 +76,12 @@ kung <- read.csv("https://raw.githubusercontent.com/sebastiansauer/Lehre/main/da
 
 lm_model <- lm(height ~ weight, data = kung)
 
-ggplot(kung, aes(x = weight, y = height)) +
+p1 <- ggplot(kung, aes(weight, height)) +
   geom_point(alpha = .7) +
   geom_abline(intercept = coef(lm_model)[1], slope = coef(lm_model)[2], color = "#6fb899", linewidth = 1) +
   theme_minimal()
+
+p1 + expand_limits(x=0, y=100)
 ```
 
 Der y-Achsenabschnitt sagt uns jetzt aber nur aus, wie groß ein Mensch mit dem Gewicht von 0 kg ist. Um sinnvolle Priors zu formulieren, ist es hilfreich, direkt ein Modell aufzustellen, dass mit dem zentrierten Körpergewicht arbeitet, denn wenn wir von allen Gewichten den Mittelwert abziehen, wird der Mittelwert an die Stelle, an der 0 war verschoben. Dadurch zeigt der y-Achsenabschnitt die Körpergröße eines durchschnittlich schweren Kung an:

@@ -25,7 +25,8 @@ book:
   chapters:
     - index.qmd
     - part: "Theorie"
-      chapters: 
+      chapters:
+        - Theoriestunde.qmd
         - DAGs.qmd
     - part: "Aufgaben"
       chapters:

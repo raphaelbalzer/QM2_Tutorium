@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>QM2-Tutorium WiSe23/24 - 2&nbsp; Theorie zu DAGs</title>
+<title>QM2-Tutorium WiSe23/24 - 1&nbsp; Bayes-Theorem</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Aufg_Wahrscheinlichkeiten.html" rel="next">
-<link href="./Theoriestunde.html" rel="prev">
+<link href="./DAGs.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -150,7 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Theoriestunde.html">Theorie</a></li><li class="breadcrumb-item"><a href="./DAGs.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Theorie zu DAGs</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Theoriestunde.html">Theorie</a></li><li class="breadcrumb-item"><a href="./Theoriestunde.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Bayes-Theorem</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -192,13 +192,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Theoriestunde.html" class="sidebar-item-text sidebar-link">
+  <a href="./Theoriestunde.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Bayes-Theorem</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./DAGs.html" class="sidebar-item-text sidebar-link active">
+  <a href="./DAGs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Theorie zu DAGs</span></span></a>
   </div>
 </li>
@@ -279,15 +279,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#die-vier-atome-der-kausalanalyse" id="toc-die-vier-atome-der-kausalanalyse" class="nav-link active" data-scroll-target="#die-vier-atome-der-kausalanalyse"><span class="header-section-number">2.1</span> Die vier Atome der Kausalanalyse</a>
+  <li><a href="#bayes-am-baumdiagramm" id="toc-bayes-am-baumdiagramm" class="nav-link active" data-scroll-target="#bayes-am-baumdiagramm"><span class="header-section-number">1.1</span> Bayes am Baumdiagramm</a>
   <ul class="collapse">
-  <li><a href="#die-konfundierung" id="toc-die-konfundierung" class="nav-link" data-scroll-target="#die-konfundierung"><span class="header-section-number">2.1.1</span> Die Konfundierung</a></li>
-  <li><a href="#die-kollision" id="toc-die-kollision" class="nav-link" data-scroll-target="#die-kollision"><span class="header-section-number">2.1.2</span> Die Kollision</a></li>
+  <li><a href="#herleitung" id="toc-herleitung" class="nav-link" data-scroll-target="#herleitung"><span class="header-section-number">1.1.1</span> Herleitung</a></li>
+  <li><a href="#beipsiel-brustkrebsdiagnose" id="toc-beipsiel-brustkrebsdiagnose" class="nav-link" data-scroll-target="#beipsiel-brustkrebsdiagnose"><span class="header-section-number">1.1.2</span> Beipsiel: Brustkrebsdiagnose</a></li>
   </ul></li>
-  <li><a href="#beispielaufgabe" id="toc-beispielaufgabe" class="nav-link" data-scroll-target="#beispielaufgabe"><span class="header-section-number">2.2</span> Beispielaufgabe</a></li>
-  <li><a href="#kausal03" id="toc-kausal03" class="nav-link" data-scroll-target="#kausal03"><span class="header-section-number">2.3</span> kausal03</a></li>
-  <li><a href="#kausal29" id="toc-kausal29" class="nav-link" data-scroll-target="#kausal29"><span class="header-section-number">2.5</span> kausal29</a></li>
-  <li><a href="#kausal28" id="toc-kausal28" class="nav-link" data-scroll-target="#kausal28"><span class="header-section-number">2.7</span> kausal28</a></li>
+  <li><a href="#globusversuchgittermethode" id="toc-globusversuchgittermethode" class="nav-link" data-scroll-target="#globusversuchgittermethode"><span class="header-section-number">1.2</span> Globusversuch/Gittermethode</a></li>
+  <li><a href="#bayesianische-lineare-regression" id="toc-bayesianische-lineare-regression" class="nav-link" data-scroll-target="#bayesianische-lineare-regression"><span class="header-section-number">1.3</span> Bayesianische lineare Regression</a></li>
   </ul>
 </nav>
     </div>
@@ -296,7 +294,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Theorie zu DAGs</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Bayes-Theorem</span></h1>
 </div>
 
 
@@ -311,249 +309,111 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<section id="bayes-am-baumdiagramm" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="bayes-am-baumdiagramm"><span class="header-section-number">1.1</span> Bayes am Baumdiagramm</h2>
+<section id="herleitung" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="herleitung"><span class="header-section-number">1.1.1</span> Herleitung</h3>
+<p>Der Satz von Bayes ist das zentrale mathematische Theorem, auf dem alle Inhalte des Moduls aufbauen. Deshalb kann es hilfreich sein, ihn in seinen Grundzügen und seiner Anwendung auf komplexere Sachverhalte zu verstehen. Hierzu müssen wir aber von ganz unten anfangen, nämlich bei den guten alten Baumdiagrammen. Gehen wir davon aus, dass wir eine Formel erarbeiten möchten, mit der wir jede bedingte Wahrscheinlichkeit eines binomialverteilten Sachverhalts ausrechnen können:</p>
+<p><img src="Baumdiagramm1.png" class="img-fluid"> Multipliziert man <span class="math inline">\(P(A)\)</span> mit der Wahrscheinlichkeit für <span class="math inline">\(B\)</span>, under der Bedingung dass <span class="math inline">\(A\)</span> bereits eingetreten ist, also <span class="math inline">\(P(B|A)\)</span>, so erhält man die Schnittwahrscheinlichkeit von <span class="math inline">\(A\)</span> und <span class="math inline">\(B\)</span>, nämlich <span class="math inline">\(P(A\cap B)\)</span>. Als nächstes schauen wir uns das umgekehrte Baumdiagramm an. Multipliziert man <span class="math inline">\(P(B)\)</span> mit der bedingten Wahrscheinlichkeit <span class="math inline">\(P(A|B)\)</span>, so erhält man ebenfalls die Schnittwahrscheinlichkeit von <span class="math inline">\(A\)</span> und <span class="math inline">\(B\)</span>. Diese zwei Produkte können wir also gleich setzen: <span class="math display">\[
+P(A)\times P(B|A)=P(B)\times P(A|B)
+\]</span> Jetzt müssen wir nur noch nach der gewünschten Wahrscheinlichkeit auflösen, zum Beispiel nach <span class="math inline">\(P(B|A)\)</span>: <span class="math display">\[
+P(A)\times P(B|A)=P(B)\times P(A|B)\ |:P(A)
+\]</span> <span class="math display">\[
+P(B|A)=\dfrac{P(B)\times P(A|B)}{P(A)}
+\]</span> Da haben wir auch schon unsere Formel. Diese Formel nennt man auch das Bayes-Theorem.</p>
+</section>
+<section id="beipsiel-brustkrebsdiagnose" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="beipsiel-brustkrebsdiagnose"><span class="header-section-number">1.1.2</span> Beipsiel: Brustkrebsdiagnose</h3>
+<p>Gehen wir davon aus, dass Anna mit Brustkrebs diagnostiziert wurde und jetzt unbedingt wissen möchte, wie hoch die Wahrscheinlichkeit ist, dass sie auch wirklich Brustrebs hat. Dieser Zusammenhang lässt sich in einem Baumdiagramm darstellen: <img src="Baum-Brustkrebs.png" class="img-fluid"> Hier sehen wir unter anderem, wie wahrscheinlich es ist, Brustkrebs zu bekommen: <span class="math inline">\(P(B)=0,01\)</span>. Außerdem können wir die bedingte Wahrscheinlichkeit <span class="math inline">\(P(P|B)=0,8\)</span> ablesen, also die Wahrscheinlichkeit dafür, positiv diagnostiziert zu werden, unter der Voraussetzung dass man Brustkrebs hat. <span class="math inline">\(P(\bar{P}|B)\)</span> ist wiederum die Wahrscheinlichkeit für den Fall, dass man Brustkrebs hat, dieser jedoch vom Test nicht erkannt wird. Die Wahrscheinlichkeit, die uns eigentlich interessiert, nämlich <span class="math inline">\(P(P|B)\)</span> ist hier aber gar nicht abgebildet; um diese abzulesen, bräuchte es das umgekehrte Baumdiagramm. Um Annas dringende Frage zu beantworten, haben wir allerdings schon alle Informationen, denn wir machen uns einfach das Bayes-Theorem zu Nutze. Wir können die Gleichung von vorhin einfach auf diese Situation anwenden, weil wir ja wissen, dass <span class="math inline">\(P(B\cap P)\)</span> gleich <span class="math inline">\(P(P\cap B)\)</span> ist: <span class="math display">\[
+P(P)\times P(B|P)=P(B)\times P(P|B)
+\]</span> Jetzt können wir nach <span class="math inline">\(P(B|P)\)</span> auflösen: <span class="math display">\[
+P(P)\times P(B|P)=P(B)\times P(P|B)\ |:P(P)
+\]</span> <span class="math display">\[
+P(B|P)=\dfrac{P(B)\times P(P|B)}{P(P)}
+\]</span> Jetzt müssen wir nur noch die Wahrscheinlichkeiten einsetzen. <span class="math inline">\(P(B)\)</span> und <span class="math inline">\(P(P|B)\)</span> wissen wir ja bereits und die Gesamtwahrscheinlichkeit von <span class="math inline">\(P\)</span> können wir auch ganz einfach ausrechnen, indem wir die Schnittwahrscheinlichkeiten <span class="math inline">\(P(P\cap B)\)</span> und <span class="math inline">\(P(P\cap \bar B)\)</span> addieren: <span class="math display">\[
+P(B|P)=\dfrac{P(B)\times P(P|B)}{P(B)\times P(P|B) + P(\bar B)\times P(P|\bar B)}
+\]</span> <span class="math display">\[
+P(B|P)=\dfrac{0,01\times 0,8}{0,01\times 0,8 + 0,99\times 0,1}
+\]</span> <span class="math display">\[
+P(B|P)=\dfrac{0,008}{0,107}
+\]</span> <span class="math display">\[
+P(B|P)=0,0747
+\]</span> Geschafft! Wir haben erfolgreich herausgefunden, wie wahrscheinlich es ist, dass Anna richtigerweise mit Brustkrebs diagnostiziert wurde. Mit anderen Worten: Wir haben die Wahrscheinlichkeit für eine Hypothese, nämlich dass sie Brustkrebs hat, unter Einbeziehung einer bestimmten Datenlage (Evidenz), nämlich dass ihr ein positives Testergebnis vorliegt. Um die Wahrscheinlichkeit für diese Hypothese auszurechnen, haben wir unser Vorwissen, nämlich die Wahrscheinlichkeit dafür, überhaupt Brustkrebs zu haben (Prior) mit der Wahrscheinlichkeit, positiv diagnostiziert zu werden, unter der Bedingung dass man Brustkrebs hat (Likelihood) multipliziert und dieses Produkt durch die gesamte Evidenz geteilt. Als Formel sieht das dann so aus: <span class="math display">\[
+P(H|E)=\dfrac{Prior\times Likelihood}{Evidenz}
+\]</span> Mit dieser allgemeinen Bayes-Formel kann man alle möglichen Hypothesen testen. Sie wird in den verschiedensten wissenschaftlichen Bereichen angewendet, um weitaus komplexere Sachverhalte als einen binomialverteilten Zusammenhang zu verstehen. Man kann auch eine ganze Reihe von Hypothesen testen, um danach festzustellen, welche Hypothese die wahrscheinlichste ist. Das tun wir zum Beispiel, wenn wir eine Bayes-Box erstellen.</p>
+</section>
+</section>
+<section id="globusversuchgittermethode" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="globusversuchgittermethode"><span class="header-section-number">1.2</span> Globusversuch/Gittermethode</h2>
+<p>Beim Globusversuch wollen wir zum Beispiel wissen, wie wahrscheinlich es ist, dass der Globus 6 mal auf Wasser (W) und 3 mal auf Land (L) zu landen, alsp wie wahrscheinlich 6 von 9 Treffern sind. Um das herauszufinden, stellen wir mehrere Hypothesen für die Trefferwahrscheinlichkeit auf, um genau zu sein 11 (jede Trefferwahrscheinlichkeit von 0 bis 1 mit einer Schrittweite von 0,1). Diese Wahrscheinlichkeiten setzen wir dann einzeln in das Bayes-Theorem ein. Beispiel: Wir möchten die Wahrscheinlichkeit für die Hypothese testen, dass die Trefferwahrscheinlichkeit p 0,6 beträgt und berücksichtigen dabei die Datenlage/Evidenz, dass wir 6 von 9 Treffern beobachtet haben. Unser Vorwissen hält sich dazu in Grenzen, weshalb wir diesen Faktor nicht mit einfließen lassen. Wir errechnen also lediglich den Likelihood, nämlich die Wahrscheinlichkeit dafür, dass wir 6 von 9 Treffern beobachten, falls die Trefferwahrscheinlichkeit wirklich bei 0,6 liegt: <span class="math display">\[
+P(p = 0,6|6\ von\ 9\ Treffern) = P(6,9|p=0,6)
+\]</span> Man könnte auch sagen, dass man als Prior 1 nimmt, denn <span class="math inline">\(1\times Likelihood\)</span> ist einfach nur der Likelihood. Damit sich alle Postwahrscheinlichkeiten zu 1 aufsummieren, teilen wir den Likelihood durch die Evidenz, also die Summe aller unstandardisierten Postwahrscheinlichkeiten. Wenn wir diese Postwahrscheinlichkeit für alle 11 Hypothesen ausrechnen, sieht das dann in Tabellenform so aus:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstanarm)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggdag)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dagitty)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>gg_simple_dag <span class="ot">&lt;-</span> <span class="cf">function</span>(d) {</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  d <span class="sc">%&gt;%</span> </span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">xend =</span> xend, <span class="at">yend =</span> yend)) <span class="sc">+</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_dag_point</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">size =</span> <span class="fl">6.5</span>) <span class="sc">+</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_dag_text</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_dag_edges</span>() <span class="sc">+</span> </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_dag</span>()</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">Hypothesen =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.1</span>),</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Prior =</span> <span class="dv">1</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Likelihood =</span> <span class="fu">dbinom</span>(<span class="dv">6</span>, <span class="dv">9</span>, Hypothesen),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Evidenz =</span> <span class="fu">sum</span>(Prior <span class="sc">*</span> Likelihood),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Post =</span> (Prior <span class="sc">*</span> Likelihood <span class="sc">/</span> Evidenz)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Post =</span> <span class="fu">round</span>(Post, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["Hypothesen"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Prior"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Likelihood"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Evidenz"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Post"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.0","2":"1","3":"0.000000000","4":"1.00065","5":"0.00"},{"1":"0.1","2":"1","3":"0.000061236","4":"1.00065","5":"0.00"},{"1":"0.2","2":"1","3":"0.002752512","4":"1.00065","5":"0.00"},{"1":"0.3","2":"1","3":"0.021003948","4":"1.00065","5":"0.02"},{"1":"0.4","2":"1","3":"0.074317824","4":"1.00065","5":"0.07"},{"1":"0.5","2":"1","3":"0.164062500","4":"1.00065","5":"0.16"},{"1":"0.6","2":"1","3":"0.250822656","4":"1.00065","5":"0.25"},{"1":"0.7","2":"1","3":"0.266827932","4":"1.00065","5":"0.27"},{"1":"0.8","2":"1","3":"0.176160768","4":"1.00065","5":"0.18"},{"1":"0.9","2":"1","3":"0.044641044","4":"1.00065","5":"0.04"},{"1":"1.0","2":"1","3":"0.000000000","4":"1.00065","5":"0.00"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
-<section id="die-vier-atome-der-kausalanalyse" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="die-vier-atome-der-kausalanalyse"><span class="header-section-number">2.1</span> Die vier Atome der Kausalanalyse</h2>
+</div>
+</div>
+<p>Der aufmerksame Leser hat im R-Code den Satz des Bayes wiedererkannt, der zur Berechnung der Postwahrscheinlichkeit genutzt wird. Die Formel für die Berechnung der relativen Wahrscheinlichkeiten aller Hypothesen (Trefferwahrscheinlichkeiten für n-mal Wasser und n-mal Land) sieht so aus: <span class="math display">\[
+P(p|W,L)=\dfrac{P(p)\times P(W,L|p)}{P(W,L)}
+\]</span></p>
+</section>
+<section id="bayesianische-lineare-regression" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="bayesianische-lineare-regression"><span class="header-section-number">1.3</span> Bayesianische lineare Regression</h2>
+<p>Einn weitere Methode, bei der das Bayes-Theorem Anwendung findet, ist die lineare Regression. Dieses Thema sollte noch aus der Schule und Statstik 1 ausreichend bekannt sein. Hier trotzdem nochmal die Formel:</p>
+<p><span class="math display">\[
+y_{i}=\alpha+\beta x_{i}
+\]</span> Jeder Wert für <span class="math inline">\(y\)</span> (das bedeutet das Index <span class="math inline">\(i\)</span>) ist das Ergebnis des Achsenabschnitts <span class="math inline">\(\alpha\)</span> plus der Steigung <span class="math inline">\(\beta\)</span> mal den jeweiligen <span class="math inline">\(x\)</span>-Wert. Jedem <span class="math inline">\(x\)</span>-Wert entspricht also einem <span class="math inline">\(y\)</span>-Wert So sieht das ganze dann anhand des Kung-Datensatzes aus, wenn <span class="math inline">\(y\)</span> Körpergröße und <span class="math inline">\(x\)</span> Körpergewicht ist:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-four-atoms" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="DAGs_files/figure-html/fig-four-atoms-1.png" class="img-fluid figure-img" width="864"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.1: Die vier Atome der Kausalinferenz</figcaption>
-</figure>
+<p><img src="Theoriestunde_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</div>
-<p>Aufgabe: Von x zu y, also die Wirkung von X auf Y</p>
-<section id="die-konfundierung" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="die-konfundierung"><span class="header-section-number">2.1.1</span> Die Konfundierung</h3>
-<p>Gabel, von einem Punkt gehen 2 Pfeile aus</p>
-<p>🚶 🕳️ 🏁 x &lt;———- z ———–&gt; y 🌉</p>
-<p>Vorstellung: Wir haben einen Pfad, der bei X startet und über z zu y führt. Man stelle sich vor, an der Stelle von z sei ein Loch, durch das Kontrollieren bauen wir eine Brücke bzw. schließen das Loch.</p>
-<p>–&gt; Damit schließt sich der Pfad</p>
-</section>
-<section id="die-kollision" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="die-kollision"><span class="header-section-number">2.1.2</span> Die Kollision</h3>
-<p>2 Pfeile treffen an einem Punkt aufeinander</p>
-<p>🚶 💣️ 🚫 x ———-&gt; m &lt;———– y 🌋</p>
-<p>Vorstellung: Wir haben einen Pfad, der bei X startet und über m zu y führt. Man stelle sich vor, an der Stelle von m explodiert die Straße (= Kollision), was tun wir jetzt? Wenn wir versuchen die Straße zu reparieren, also zu kontrollieren, explodiert m immer wieder, wir können uns vorstellen, dass z.B. ein Vulkan an der Stelle immer wieder ausbricht.</p>
-<p>–&gt; Hier dürfen wir auf keinen Fall kontrollieren, in diesem Fall lassen wir alles so, wie es ist.</p>
-</section>
-</section>
-<section id="beispielaufgabe" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="beispielaufgabe"><span class="header-section-number">2.2</span> Beispielaufgabe</h2>
+<p>Der y-Achsenabschnitt sagt uns jetzt aber nur aus, wie groß ein Mensch mit dem Gewicht von 0 kg ist. Um sinnvolle Priors zu formulieren, ist es hilfreich, direkt ein Modell aufzustellen, dass mit dem zentrierten Körpergewicht arbeitet, denn wenn wir von allen Gewichten den Mittelwert abziehen, wird der Mittelwert an die Stelle, an der 0 war verschoben. Dadurch zeigt der y-Achsenabschnitt die Körpergröße eines durchschnittlich schweren Kung an:</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="DAGs_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<p><img src="Theoriestunde_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Gegeben sei der DAG <code>g</code> (s. u.). Der DAG verfügt über r <code>dag_size</code> Variablen, die als Knoten im Graph dargestellt sind (mit <span class="math inline">\(x_1, x_2, \ldots x_n\)</span> bezeichnet) und über Kanten verbunden sind.</p>
-<p><em>Welche minimale Variablenmenge muss kontrolliert werden, um den kausalen Effekt von der UV zur AV zu identifizieren?</em></p>
-<p>UV: <code>x4</code>.</p>
-<p>AV: <code>x5</code>.</p>
-<p><em>Hinweise</em>:</p>
-<ul>
-<li>Mengen sind mittels geschweifter Klammern gekennzeichnet, z.B. <code>{x8, x9}</code> meint die Menge mit den zwei Elementen <code>x8</code> und <code>x9</code>.</li>
-<li>Die leere Menge <code>{ }</code> bedeutet, dass keine Variable kontrolliert werden muss, um den kausalen Effekt zu identifizieren.</li>
-<li>Alle Variablen werden als gemessen vorausgesetzt.</li>
-<li>Es ist möglich, dass es keine Lösung gibt, dass es also keine Adjustierungsmenge gibt, um den kausalen Effekt zu identifizieren. Wenn dies der Fall sein sollte, wählen Sie “keine Lösung”.</li>
-<li>Es ist möglich, dass einzelne Variablen keine Kanten besitzen, also keine Verbindung zu anderen Variablen (Knoten) haben.</li>
-</ul>
-<p>Vorgehen:</p>
-<ol type="1">
-<li>UV &amp; AV identifizieren</li>
-</ol>
-<p>UV ist bei diesem DAG <code>x4</code> und die AV ist <code>x5</code></p>
-<ol start="2" type="1">
-<li>Direkte kausale Pfade suchen</li>
-</ol>
-<p>In diesem DAG gibt es keine direkten kausalen Pfade, also keine Pfeile, die direkt von <code>x4</code> zu <code>x5</code> führen, bei denen die Pfeilrichtung korrekt ist und es über keine weiteren Variablen geht.</p>
-<ol start="3" type="1">
-<li>Mögliche Hinterpfade suchen</li>
-</ol>
-<p>Dieser DAG hat viele Hinterpfade, also Pfade, die von der UV über weitere Variablen zur AV führen.</p>
-<p>Ein Beispiel wäre der Pfad von <code>x4</code> über <code>x3</code>, <code>x1</code>, <code>x2</code> zu <code>x5</code>. Natürlich gibt es noch viel mehr Möglichkeiten.</p>
-<ol start="4" type="1">
-<li>Welche Pfade soll man schließen (= Konfundierung), welche soll man lassen (= Kollision)?</li>
-</ol>
-<p>Wichtig ist es hierbei jeden Pfad einzeln für sich zu betrachten und nur bei dem zu betrachtenden Pfad auf die Pfeilrichtungen zu schauen.</p>
-<p>Betrachtet man nun die Variable <code>x7</code>, dann sieht man, dass egal welchen Pfad man geht, bei <code>x7</code> immer eine Kollision entsteht. Also kann man alle Pfade, die über <code>x7</code> führen ausschließen und es darf nicht kontrolliert werden. <code>x6</code> ist damit auch ein Collider, da der einzige Pfad, der keine Kollision bei <code>x6</code> hat über <code>x7</code> führt, damit ist auch diese Variable ausgeschlossen.</p>
-<p>Suchen wir jetzt nach Confundern: Je nach Pfad, den man wählt kann jede andere Variable, also <code>x1</code>, <code>x2</code> und <code>x3</code> (denn <strong>UV und AV darf man nie kontrollieren</strong>), ein Confunder sein.</p>
-<p>Schauen wir uns ein Beispiel an: <code>x4</code> &lt;- <code>x1</code> -&gt; <code>x2</code> -&gt; <code>x5</code> Bei diesem Pfad wäre <code>x1</code> der Confunder.</p>
-<p><img src="DAG_Pfade.PNG" class="img-fluid" alt="DAG mit eingezeichneten Pfaden"> Alle Pfade mit Kollisionen sind hier rot gekennzeichnet, alle mit Confundern grün.</p>
-<ol start="5" type="1">
-<li>Die kleinste Menge finden</li>
-</ol>
-<p>Wie finden wir jetzt die minimale Menge an Variablen, die wir kontrollieren müssen, um alle Hintertürpfade zu schließen?</p>
-<p>Das Gute ist, dass sobald man einen Confunder auf einem Pfad hat, es total egal ist, welche “Zwischen”-Variable man kontrolliert.</p>
-<p>Hier anhand eines Beispiels: <code>x4</code> &lt;- <code>x1</code> -&gt; <code>x2</code> -&gt; <code>x5</code> Bei diesem Pfad wäre <code>x1</code> zwar der Confunder, aber wir können stattdessen auch <code>x2</code> kontrollieren, da es für den Pfad und das Ergebnis egal ist, ob wir <code>x1</code> oder <code>x2</code> kontrollieren.</p>
-<p>Genauso egal ist es, welchen Confunder man kontrolliert, wenn man mehrere Confunder auf einem Pfad hat, es reicht immer, <strong>nur einen</strong> zu kontrollieren.</p>
-<p>Schauen wir jetzt, über welche “Zwischen”-Variable alle Confunder-Pfade laufen müssen: in diesem Fall wäre das <code>x2</code>, also reicht es nur diese Variable zu kontrollieren, um alle Hintertürpfade zu schließen und den Effekt der UV auf die AV zu identifizieren.</p>
-</section>
-<section id="kausal03" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="kausal03"><span class="header-section-number">2.3</span> kausal03</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">A</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">L</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>Gegeben sei der DAG <code>g</code> (s.u.). Was ist die minimale Menge an Variablen, die man kontrollieren muss, um den kausalen Effekt von <code>x</code> auf <code>y</code> zu identifizieren?</p>
+<p>Jetzt kommt Bayes in’s Spiel. Bei der Bayesianischen linearen Regression gehen wir nicht davon aus, dass der einzige und einzig wahre <span class="math inline">\(y\)</span>-Wert das Ergebnis der Formel ist, sondern dass es lediglich der Mittelwert der Postverteilung ist. Es wird also kein Punktschätzer abgegeben, sondern ein Wertebereich, in dem <span class="math inline">\(y\)</span> liegt. Das Ergebnis von <span class="math inline">\(\alpha+\beta x_{i}\)</span> ist der Mittelwert <span class="math inline">\(\mu\)</span> dieses Wertebereichs. Außerdem gehen wir apriori davon aus, dass dieser Wertebereich eine Normalverteilung mit Mittellwert <span class="math inline">\(\mu\)</span> und Streuung <span class="math inline">\(\sigma\)</span> ist. Man sagt auch <span class="math inline">\(y\)</span> ist normalverteilt (Bei Körpergröße durchaus eine vernünftige Annahme). <span class="math display">\[
+\begin{aligned}
+y_i\sim Normal(\mu_{i},\sigma)\\
+\mu_{i}=\alpha+\beta x_{i}
+\end{aligned}
+\]</span> Um noch mehr Vorwissen in die Regression einfließen zu lassen, spezifizieren wir die Modellparameter in Form des Priors. Wir können nämlich unser Vorwissen zur Körpergröße eines durchscnittlich schweren Kung angeben. Wir gehen davon aus, dass diese Körpergröße bei ca. 140 cm liegt, aber auch ein bisschen darüber oder darunter liegen kann. Um diese Unsicherheit zu quantifizieren geben wir eine Verteilung mit einer sinnvollen Streuung an, zum Beispiel <span class="math inline">\(N(140, 10)\)</span>. Außerdem gehen wir von einer positiven linearen Beziehung aus, also dass ein Mensch mit höherem Gewicht auch größer ist. Das heißt, um den besten Wert für die Steigung <span class="math inline">\(\beta\)</span> zu bestimmen, wollen wir mögliche Werte aus einer Verteilung ziehen, die nur positive Werte zulässt, wie zum Beispiel <span class="math inline">\(N(5,3)\)</span>. Die Streuung <span class="math inline">\(\sigma\)</span> muss auch zwingend positiv sein, weil es keine negative Streuung geben kann. Deshalb ziehen wir hier aus einer Exponentialverteilung. Unsere Modellspezifikation sieht also wie folgt aus: <span class="math display">\[
+\begin{aligned}
+y_i\sim Normal(\mu_{i},\sigma)\\
+\mu_{i}=\alpha+\beta x_{i}\\
+\alpha \sim Normal(140, 10)\\
+\beta \sim Normal(5,3)\\
+\sigma \sim Exp(0.1)
+\end{aligned}
+\]</span> Jetzt haben wir alle Prior-Parameter festgelegt. Aber was bedeutet das jetzt genau? Wir haben jetzt quasi einen Topf voll Zutaten, aus dem wir zufällig irgendwelche Zutaten ziehen und zusammenmischen. Zum Beispiel könnte ein Gericht, was dann ensteht, folgende Gleichung sein: <span class="math display">\[
+\begin{aligned}
+y_i\sim Normal(\mu_{i},10)\\
+\mu=148+3x
+\end{aligned}
+\]</span> Wenn man jetzt einen Wert für <span class="math inline">\(x\)</span> einsetzt, zum Beispiel 4 (Reminder: wir arbeiten mit zentrierten Werten), dann bekommt man einen <span class="math inline">\(y\)</span>-Wert, nämlich 160, heraus. Weil wir aber nicht nur ein zufälliges Gericht zusammenwürfeln, sondern ganz viele (ca. 4000), bekommen wir eben eine Normalverteilung für jeden einzelnen <span class="math inline">\(x\)</span>-Wert heraus, die alle möglichen Kombinationen unserer Zutaten aus dem Topf enthält. Die grüne Gerade ist also nicht die einzige, sondern die Gerade der Mittelwerte dieser Verteilungen. Der graue Bereich um die Gerade herum ist der Bereich, in dem 95 Prozent aller anderen Geraden liegen:</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="DAGs_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<p><img src="Theoriestunde_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Hinweise:</p>
-<ul>
-<li>Gebogene Kurven mit doppelter Pfeilspitze zeigen <em>keine</em> Kausaleinflüsse ein (was in DAGs nicht erlaubt wäre).</li>
-<li>Stattdessen zeigen Sie eine Assoziation bedingt durch eine (nicht aufgeführte) Konfundierungsvariable an.</li>
-</ul>
-<section id="answerlist" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="answerlist"><span class="header-section-number">2.4</span> Answerlist</h2>
-<ul>
-<li>{ w1, w2, z2 }</li>
-<li>{ w2, z2 }</li>
-<li>{ w1, w2 }</li>
-<li>{ w1, z2 }</li>
-<li>{ w1 }</li>
-</ul>
-</section>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>Wir haben einen direkten kausalen Pfad zwischen <code>x</code> und <code>y</code> Ignorieren wir erstmal die gebogenen Pfeile und schauen uns dann zu allererst die Pfade an, die nur über eine Zwischenvariable führen. Hier sehen wir, dass es nur 2 Möglichkeiten gibt, einmal über <code>w1</code> und über <code>w2</code>, beides sind Confunder, also müssen wir beide auf jeden Fall kontrollieren.</p>
-<p>Wir haben 2 Collider Pfade, einmal von <code>x</code> über <code>w1</code>, <code>z1</code>, <code>v</code>, <code>z2</code> zu <code>y</code> und von <code>x</code> über <code>z1</code>, <code>v</code>, <code>z2</code>, <code>w2</code> zu <code>y</code> (würden wir die beiden Pfade zu einem großen kombinieren hätten wir theoretisch sogar noch einen Collider-Pfad). Diese Pfade können wir also von unseren Überlegungen ausschließen.</p>
-<p>Suchen wir jetzt noch nach Confunder-Pfaden, die nicht über <code>w1</code> oder <code>w2</code> führen. Es bleibt nur ein Pfad übrig (von <code>x</code> über <code>z1</code>, <code>v</code>, <code>z2</code> zu <code>y</code>). Der Confunder wäre hier <code>v</code>, jedoch gibt es diese Antwortmöglichkeit nicht. Wie jedoch vorher erklärt, ist es egal welche Zwischenvariable wir auf einem Confunder-Pfaf kontrollieren, hauptsachen wir kontrollieren eine. Für diesen Pfad ist es also egal, ob wir <code>z1</code>, <code>v</code> oder <code>z2</code> kontrollieren.</p>
-<p>Die Lösung wäre also: { w1, w2, z2 }</p>
-<p>Genauso richtig wäre aber auch: { w1, w2, z1 } { w1, w2, v }</p>
-</div>
-</div>
-</div>
-</section>
-<section id="kausal29" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="kausal29"><span class="header-section-number">2.5</span> kausal29</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">A</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">L</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<p>Gegeben sei der DAG (Graph) <code>g</code> (s. u.). Der DAG verfügt über mehrere Variablen, die als Knoten im Graph dargestellt sind.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dagify</span>(</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    y <span class="sc">~</span> z <span class="sc">+</span> m,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    m <span class="sc">~</span> x <span class="sc">+</span> z,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">exposure =</span> <span class="st">"x"</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">outcome =</span> <span class="st">"y"</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Hier ist die Definition des DAGs:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>dag {
-m
-x [exposure]
-y [outcome]
-z
-m -&gt; y
-x -&gt; m
-z -&gt; m
-z -&gt; y
-}</code></pre>
-</div>
-</div>
-<p>Und so sieht er aus:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggdag</span>(f) <span class="sc">+</span> <span class="fu">theme_dag_blank</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="DAGs_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p><em>Welche minimale Variablenmenge muss kontrolliert werden, um den kausalen Effekt von der UV zur AV zu identifizieren?</em></p>
-<p>UV: x</p>
-<p>AV: y</p>
-<p><em>Hinweise</em>:</p>
-<ul>
-<li>Mengen sind mittels geschweifter Klammern gekennzeichnet, z.B. <code>{x8, x9}</code> meint die Menge mit den zwei Elementen <code>x8</code> und <code>x9</code>.</li>
-<li>Die leere Menge <code>{ }</code> bedeutet, dass keine Variable kontrolliert werden muss, um den kausalen Effekt zu identifizieren.</li>
-<li>Alle Variablen werden als gemessen vorausgesetzt.</li>
-<li>Es ist möglich, dass es keine Lösung gibt, dass es also keine Adjustierungsmenge gibt, um den kausalen Effekt zu identifizieren. Wenn dies der Fall sein sollte, wählen Sie “keine Lösung”.</li>
-</ul>
-<section id="answerlist-1" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="answerlist-1"><span class="header-section-number">2.6</span> Answerlist</h2>
-<ul>
-<li>{m}</li>
-<li>{z}</li>
-<li>{m, z}</li>
-<li>{ }</li>
-<li>keine Lösung</li>
-</ul>
-</section>
-</div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<p>Man sieht direkt, dass man immer über <code>m</code> gehen muss, um zu <code>y</code> zu gelangen. Betrachtet man den Pfad von <code>x</code> über <code>m</code> zu <code>y</code>, dann sieht man, dass <code>m</code> hier ein Mediator ist, diese muss man nicht kontrollieren. Der zweite mögliche Pfad führt über <code>m</code> und <code>z</code>, jedoch liegt hier bei <code>m</code> ein Collider vor, deswegen dürfen wir in dem Fall weder <code>m</code> noch <code>z</code> kontrollieren.</p>
-<p>Die Lösung ist also: { }, da wir keine Variable kontrollieren müssen, um den Effekt von <code>x</code> auf <code>y</code> zu identifizieren.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="kausal28" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="kausal28"><span class="header-section-number">2.7</span> kausal28</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">A</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">L</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="DAGs_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Gegeben sei der DAG <code>g</code> (s. u.). Der DAG verfügt über mehrere Variablen, die als Knoten im Graph dargestellt sind und mit <span class="math inline">\(x_1, x_2, \ldots x_n\)</span> bezeichnet sind.</p>
-<p><em>Welche minimale Variablenmenge muss kontrolliert werden, um den kausalen Effekt von der UV zur AV zu identifizieren?</em></p>
-<p>UV: <code>x7</code>.</p>
-<p>AV: <code>x8</code>.</p>
-<p><em>Hinweise</em>:</p>
-<ul>
-<li>Mengen sind mittels geschweifter Klammern gekennzeichnet, z.B. <code>{x8, x9}</code> meint die Menge mit den zwei Elementen <code>x8</code> und <code>x9</code>.</li>
-<li>Die leere Menge <code>{ }</code> bedeutet, dass keine Variable kontrolliert werden muss, um den kausalen Effekt zu identifizieren.</li>
-<li>Alle Variablen werden als gemessen vorausgesetzt.</li>
-<li>Es ist möglich, dass es keine Lösung gibt, dass es also keine Adjustierungsmenge gibt, um den kausalen Effekt zu identifizieren. Wenn dies der Fall sein sollte, wählen Sie “keine Lösung”.</li>
-</ul>
-<section id="answerlist-2" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="answerlist-2"><span class="header-section-number">2.8</span> Answerlist</h2>
-<ul>
-<li>{ x1 , x2 , x3 , x4 , x5 , x6 }</li>
-<li>{ x3, x4 }</li>
-<li>{ x8 }</li>
-<li>{ x6, x7 }</li>
-<li>{ x2, x5 }</li>
-</ul>
-</section>
-</div>
-<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<p>Der DAG wirkt auf den ersten Blick sehr überfordernd, aber ist gar nicht schwer zu lösen. Es gibt einen direkten kausalen Pfad von <code>x7</code> auf <code>x8</code>. Schaut man sich den DAG jetzt genauer an, dann sieht man dass es für jede Zwischenvariable einen einzelnen Pfad gibt, heißt z.B. es gibt einen einzelnen Pfad der nur über <code>x5</code> oder nur über <code>x3</code> führt. Alle diese Variablen sinf für diese Pfade auch Confunder, also müssen wir alle Zwischenvariablen kontrollieren.</p>
-<p>Die Lösung ist also: { x1 , x2 , x3 , x4 , x5 , x6 }</p>
-</div>
-</div>
-</div>
+<p>Jedes Gericht, was aus einer zufälligen Ziehung aus dem Topf entsteht, ist eine Hypohtese. Wie immer wollen wir natürlich eine Hypothese unter Einbeziehung von Daten überprüfen. In diesem Fall sind die Daten das Gewicht und die Größe der Kung-Menschen. Um die Wahrscheinlichkeit für jede mögliche Kombination aller möglichen Modellparameter auszurechnen, multiplizieren wir wieder unser Vorwissen, also die Modellspezifikation mit dem Likelihood, also der Wahrscheinlichkeit, unsere Datenlage zu den Gewichten und Größen zu beobachten, unter der Bedingung dass unsere Priors zutreffen. Das ist quasi die Endform des Bayes-Theorems, aus dessen Postverteilung dann Stichproben für unseren <code>stan_glm</code> gezogen werden: <span class="math display">\[
+P(\alpha, \beta, \sigma |H,W) = \dfrac{P(\alpha, \beta, \sigma)\times P(H,W|\alpha, \beta, \sigma)}{P(H,W)}
+\]</span></p>
 
 
 </section>
@@ -974,13 +834,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Theoriestunde.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Bayes-Theorem</span></span>
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Allgemeines</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Aufg_Wahrscheinlichkeiten.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Wahrscheinlichkeiten</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./DAGs.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Theorie zu DAGs</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

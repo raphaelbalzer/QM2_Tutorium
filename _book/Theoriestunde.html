@@ -378,13 +378,13 @@ y_{i}=\alpha+\beta x_{i}
 \]</span> Jeder Wert für <span class="math inline">\(y\)</span> (das bedeutet das Index <span class="math inline">\(i\)</span>) ist das Ergebnis des Achsenabschnitts <span class="math inline">\(\alpha\)</span> plus der Steigung <span class="math inline">\(\beta\)</span> mal den jeweiligen <span class="math inline">\(x\)</span>-Wert. Jedem <span class="math inline">\(x\)</span>-Wert entspricht also einem <span class="math inline">\(y\)</span>-Wert. So sieht das ganze dann anhand des Kung-Datensatzes aus, wenn <span class="math inline">\(y\)</span> Körpergröße und <span class="math inline">\(x\)</span> Körpergewicht ist:</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="Theoriestunde_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<p><img src="Theoriestunde_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Der y-Achsenabschnitt sagt uns jetzt aber nur aus, wie groß ein Mensch mit dem Gewicht von 0 kg ist. Um sinnvolle Priors zu formulieren, ist es hilfreich, direkt ein Modell aufzustellen, das mit dem zentrierten Körpergewicht arbeitet, denn wenn wir von allen Gewichten den Mittelwert abziehen, wird der Mittelwert an die Stelle, an der 0 war, verschoben. Dadurch zeigt der y-Achsenabschnitt die Körpergröße eines durchschnittlich schweren Kung an:</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="Theoriestunde_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<p><img src="Theoriestunde_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Jetzt kommt Bayes in’s Spiel. Bei der Bayesianischen linearen Regression gehen wir nicht davon aus, dass der einzige und einzig wahre <span class="math inline">\(y\)</span>-Wert das Ergebnis der Formel ist, sondern dass es lediglich der Mittelwert der Postverteilung ist. Es wird also kein Punktschätzer abgegeben, sondern ein Wertebereich, in dem <span class="math inline">\(y\)</span> liegt. Das Ergebnis von <span class="math inline">\(\alpha+\beta x_{i}\)</span> ist der Mittelwert <span class="math inline">\(\mu\)</span> dieses Wertebereichs. Außerdem gehen wir apriori davon aus, dass dieser Wertebereich eine Normalverteilung mit Mittellwert <span class="math inline">\(\mu\)</span> und Streuung <span class="math inline">\(\sigma\)</span> ist. Man sagt auch <span class="math inline">\(y\)</span> ist normalverteilt (Bei Körpergröße durchaus eine vernünftige Annahme). <span class="math display">\[
@@ -408,7 +408,7 @@ y_i\sim Normal(\mu_{i},10)\\
 \]</span> Wenn man jetzt einen Wert für <span class="math inline">\(x\)</span> einsetzt, zum Beispiel 4 (Reminder: wir arbeiten mit zentrierten Werten), dann bekommt man einen <span class="math inline">\(y\)</span>-Wert, nämlich 160, heraus. Weil wir aber nicht nur ein zufälliges Gericht zusammenwürfeln, sondern ganz viele (ca. 4000), bekommen wir eben eine Normalverteilung für jeden einzelnen <span class="math inline">\(x\)</span>-Wert heraus, die alle möglichen Kombinationen unserer Zutaten aus dem Topf enthält. Die grüne Gerade ist also nicht die einzige, sondern die Gerade der Mittelwerte dieser Verteilungen. Der graue Bereich um die Gerade herum ist der Bereich, in dem 95 Prozent aller anderen Geraden liegen:</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="Theoriestunde_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<p><img src="Theoriestunde_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Jedes Gericht, was aus einer zufälligen Ziehung aus dem Topf entsteht, ist eine Hypohtese. Wie immer wollen wir natürlich eine Hypothese unter Einbeziehung von Daten überprüfen. In diesem Fall sind die Daten das Gewicht und die Größe der Kung-Menschen. Um die Wahrscheinlichkeit für jede mögliche Kombination aller möglichen Modellparameter auszurechnen, multiplizieren wir wieder unser Vorwissen, also die Modellspezifikation mit dem Likelihood, also der Wahrscheinlichkeit, die Kung-Daten zu beobachten, unter der Bedingung dass unsere Priors zutreffen. Das ist quasi die Endform des Bayes-Theorems, aus dessen Postverteilung dann Stichproben für unseren <code>stan_glm</code> gezogen werden: <span class="math display">\[

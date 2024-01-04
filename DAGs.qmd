@@ -1,6 +1,6 @@
 # Theorie zu DAGs
 
-```{r message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE, echo=FALSE}
 library(tidyverse)
 library(easystats)
 library(rstanarm)
@@ -9,7 +9,6 @@ library(palmerpenguins)
 library(gt)
 library(ggdag)
 library(dagitty)
-library(igraph)
 
 gg_simple_dag <- function(d) {
   
@@ -82,7 +81,12 @@ Aufgabe: Von x zu y, also die Wirkung von X auf Y
 
 Gabel, von einem Punkt gehen 2 Pfeile aus
 
-🚶 🕳️ 🏁 x \<---------- z -----------\> y 🌉
+🚶\<---------- 🕳 -----------\> 🏁 
+
+x \<---------- z -----------\> y 
+
+              🌉 
+
 
 Vorstellung: Wir haben einen Pfad, der bei X startet und über z zu y führt. Man stelle sich vor, an der Stelle von z sei ein Loch, durch das Kontrollieren bauen wir eine Brücke bzw. schließen das Loch.
 
@@ -92,7 +96,11 @@ Vorstellung: Wir haben einen Pfad, der bei X startet und über z zu y führt. Ma
 
 2 Pfeile treffen an einem Punkt aufeinander
 
-🚶 💣️ 🚫 x ----------\> m \<----------- y 🌋
+🚶----------\>💣\<-----------🚫
+
+x----------\> m \<----------- y 
+
+              🌋
 
 Vorstellung: Wir haben einen Pfad, der bei X startet und über m zu y führt. Man stelle sich vor, an der Stelle von m explodiert die Straße (= Kollision), was tun wir jetzt? Wenn wir versuchen die Straße zu reparieren, also zu kontrollieren, explodiert m immer wieder, wir können uns vorstellen, dass z.B. ein Vulkan an der Stelle immer wieder ausbricht.
 
@@ -236,6 +244,7 @@ Genauso richtig wäre aber auch: { w1, w2, z1 } { w1, w2, v }
 ## kausal29
 
 ::: panel-tabset
+
 ### A
 
 Gegeben sei der DAG (Graph) `g` (s. u.). Der DAG verfügt über mehrere Variablen, die als Knoten im Graph dargestellt sind.
@@ -293,11 +302,13 @@ outcome_var <- "y"
 Man sieht direkt, dass man immer über `m` gehen muss, um zu `y` zu gelangen. Betrachtet man den Pfad von `x` über `m` zu `y`, dann sieht man, dass `m` hier ein Mediator ist, diese muss man nicht kontrollieren. Der zweite mögliche Pfad führt über `m` und `z`, jedoch liegt hier bei `m` ein Collider vor, deswegen dürfen wir in dem Fall weder `m` noch `z` kontrollieren.
 
 Die Lösung ist also: { }, da wir keine Variable kontrollieren müssen, um den Effekt von `x` auf `y` zu identifizieren.
+
 :::
 
 ## kausal28
 
 ::: panel-tabset
+
 ### A
 
 ```{r echo=FALSE}
@@ -380,4 +391,5 @@ AV: `x8`.
 Der DAG wirkt auf den ersten Blick sehr überfordernd, aber ist gar nicht schwer zu lösen. Es gibt einen direkten kausalen Pfad von `x7` auf `x8`. Schaut man sich den DAG jetzt genauer an, dann sieht man dass es für jede Zwischenvariable einen einzelnen Pfad gibt, heißt z.B. es gibt einen einzelnen Pfad der nur über `x5` oder nur über `x3` führt. Alle diese Variablen sinf für diese Pfade auch Confunder, also müssen wir alle Zwischenvariablen kontrollieren.
 
 Die Lösung ist also: { x1 , x2 , x3 , x4 , x5 , x6 }
+
 :::

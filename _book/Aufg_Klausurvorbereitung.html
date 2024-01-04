@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./Aufg_DAG.html" rel="next">
 <link href="./Aufg_Metrische_AV.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -261,6 +261,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Klausurvorbereitung</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Aufg_DAG.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">DAGs</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -354,7 +360,7 @@ UV2: <code>bill_length_mm</code></p>
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Median"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["pd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Rhat"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ESS"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Prior_Distribution"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Prior_Location"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Prior_Scale"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"-5767.6750","3":"0.95","4":"-6366.19940","5":"-5189.16397","6":"1","7":"0.9992136","8":"3949.801","9":"normal","10":"4201.754","11":"2004.8863"},{"1":"flipper_length_mm","2":"49.6151","3":"0.95","4":"46.73674","5":"52.60271","6":"1","7":"0.9992189","8":"3985.838","9":"normal","10":"0.000","11":"142.5777"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Median"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["pd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Rhat"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ESS"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Prior_Distribution"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Prior_Location"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Prior_Scale"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"-5787.34917","3":"0.95","4":"-6381.09858","5":"-5175.28905","6":"1","7":"1.000896","8":"4017.982","9":"normal","10":"4201.754","11":"2004.8863"},{"1":"flipper_length_mm","2":"49.71739","3":"0.95","4":"46.70362","5":"52.64025","6":"1","7":"1.000918","8":"4004.021","9":"normal","10":"0.000","11":"142.5777"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -376,7 +382,7 @@ UV2: <code>bill_length_mm</code></p>
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Median"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["pd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Rhat"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ESS"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Prior_Distribution"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Prior_Location"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Prior_Scale"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"-5767.6750","3":"0.95","4":"-6366.19940","5":"-5189.16397","6":"1","7":"0.9992136","8":"3949.801","9":"normal","10":"4201.754","11":"2004.8863"},{"1":"flipper_length_mm","2":"49.6151","3":"0.95","4":"46.73674","5":"52.60271","6":"1","7":"0.9992189","8":"3985.838","9":"normal","10":"0.000","11":"142.5777"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Median"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["pd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Rhat"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ESS"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Prior_Distribution"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Prior_Location"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Prior_Scale"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"-5787.34917","3":"0.95","4":"-6381.09858","5":"-5175.28905","6":"1","7":"1.000896","8":"4017.982","9":"normal","10":"4201.754","11":"2004.8863"},{"1":"flipper_length_mm","2":"49.71739","3":"0.95","4":"46.70362","5":"52.64025","6":"1","7":"1.000918","8":"4004.021","9":"normal","10":"0.000","11":"142.5777"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -398,7 +404,7 @@ UV2: <code>bill_length_mm</code></p>
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Median"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["pd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Rhat"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ESS"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Prior_Distribution"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Prior_Location"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Prior_Scale"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"-5767.6750","3":"0.9","4":"-6292.57737","5":"-5308.77206","6":"1","7":"0.9992136","8":"3949.801","9":"normal","10":"4201.754","11":"2004.8863"},{"1":"flipper_length_mm","2":"49.6151","3":"0.9","4":"47.23185","5":"52.13866","6":"1","7":"0.9992189","8":"3985.838","9":"normal","10":"0.000","11":"142.5777"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Median"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["pd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Rhat"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ESS"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Prior_Distribution"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Prior_Location"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Prior_Scale"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"-5787.34917","3":"0.9","4":"-6274.13107","5":"-5283.35677","6":"1","7":"1.000896","8":"4017.982","9":"normal","10":"4201.754","11":"2004.8863"},{"1":"flipper_length_mm","2":"49.71739","3":"0.9","4":"47.24498","5":"52.15364","6":"1","7":"1.000918","8":"4004.021","9":"normal","10":"0.000","11":"142.5777"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -431,7 +437,7 @@ UV2: <code>bill_length_mm</code></p>
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Median"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["pd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Rhat"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ESS"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Prior_Distribution"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Prior_Location"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Prior_Scale"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"4207.68021","3":"0.95","4":"4165.60017","5":"4249.53888","6":"1","7":"0.9997584","8":"3942.927","9":"normal","10":"4207.057","11":"2013.0395"},{"1":"flipper_length_mm_c","2":"50.16607","3":"0.95","4":"46.95004","5":"53.11458","6":"1","7":"1.0009187","8":"3545.168","9":"normal","10":"0.000","11":"143.6268"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Median"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["pd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Rhat"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ESS"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Prior_Distribution"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Prior_Location"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Prior_Scale"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"4207.21633","3":"0.95","4":"4162.72009","5":"4249.22361","6":"1","7":"1.000554","8":"3852.472","9":"normal","10":"4207.057","11":"2013.0395"},{"1":"flipper_length_mm_c","2":"50.22771","3":"0.95","4":"47.14687","5":"53.27518","6":"1","7":"1.000970","8":"3312.074","9":"normal","10":"0.000","11":"143.6268"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -548,7 +554,7 @@ UV2: <code>bill_length_mm</code></p>
 <pre><code>Possible multicollinearity between is_female and neu (r = 0.8), neu:is_female and neu (r = 0.86). This might lead to inappropriate results. See 'Details' in '?rope'.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="Aufg_Klausurvorbereitung_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<p><img src="Aufg_Klausurvorbereitung_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Antwort: Ja, der Effekt ist vernachlässigbar klein! Wenn dem nicht so wäre, dann wäre der Effekt von neuro auf Stress abhängig von der Ausprägung einer dritten Variable, nämlich vom Geschlecht der Probandis. Konkret würde das zum Beispiel heißen, dass die Ausprägung von Neuro bei Männern einen stärken bzw. schwächeren Einfluss auf Stress hat als bei Frauen.</p>
@@ -583,7 +589,7 @@ UV2: <code>bill_length_mm</code></p>
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Median"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["pd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Rhat"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ESS"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Prior_Distribution"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Prior_Location"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Prior_Scale"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"32.20084","3":"0.95","4":"-897.19746","5":"993.1740","6":"0.52575","7":"1.001299","8":"3633.162","9":"normal","10":"3700.662","11":"1146.4153"},{"1":"bill_length_mm","2":"94.54566","3":"0.95","4":"69.52743","5":"118.4839","6":"1.00000","7":"1.001261","8":"3601.387","9":"normal","10":"0.000","11":"430.4322"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Median"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["pd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Rhat"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["ESS"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Prior_Distribution"],"name":[9],"type":["chr"],"align":["left"]},{"label":["Prior_Location"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Prior_Scale"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"45.36075","3":"0.95","4":"-880.35499","5":"927.5335","6":"0.54","7":"1.000158","8":"4028.619","9":"normal","10":"3700.662","11":"1146.4153"},{"1":"bill_length_mm","2":"94.27418","3":"0.95","4":"71.63334","5":"118.0674","6":"1.00","7":"1.000100","8":"4005.549","9":"normal","10":"0.000","11":"430.4322"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -674,7 +680,7 @@ sigma 3.9    0.5
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">rope</span>(g3))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Aufg_Klausurvorbereitung_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+<p><img src="Aufg_Klausurvorbereitung_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rope</span>(g3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -790,9 +796,6 @@ sigma 3.9    0.5
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rope</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Possible multicollinearity between am and wt (r = 0.71). This might lead to inappropriate results. See 'Details' in '?rope'.</code></pre>
-</div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -803,28 +806,25 @@ sigma 3.9    0.5
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">rope</span>(m2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Possible multicollinearity between am and wt (r = 0.71). This might lead to inappropriate results. See 'Details' in '?rope'.</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">rope</span>(m2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Aufg_Klausurvorbereitung_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+<p><img src="Aufg_Klausurvorbereitung_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Der Effekt ist dadurch dass der Koeffizient wt:am zu 0% im ROPE liegt, relevant und damit nicht vernachlässigbar klein. Dass ein Interaktionseffekt besteht, sieht man auch in folgendem Streudiagramm: Die Reichweite von Autos mit Automatik-Schaltung sinkt mit zunehmendem Gewicht deutlich stärker, als die von Autos mit manueller Schaltung.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">am=</span><span class="fu">factor</span>(am)) <span class="sc">%&gt;%</span> </span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg, <span class="at">color=</span> am)) <span class="sc">+</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_tableau</span>(<span class="st">"Nuriel Stone"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">am=</span><span class="fu">factor</span>(am)) <span class="sc">%&gt;%</span> </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg, <span class="at">color=</span> am)) <span class="sc">+</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_tableau</span>(<span class="st">"Nuriel Stone"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="Aufg_Klausurvorbereitung_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+<p><img src="Aufg_Klausurvorbereitung_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
@@ -1256,8 +1256,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Aufg_DAG.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">DAGs</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

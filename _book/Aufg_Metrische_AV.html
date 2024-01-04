@@ -259,6 +259,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Klausurvorbereitung</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Aufg_DAG.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">DAGs</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -372,7 +378,7 @@ Warning
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["CI"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Effects"],"name":[5],"type":["chr"],"align":["left"]},{"label":["Component"],"name":[6],"type":["chr"],"align":["left"]},{"label":["width"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"0.9","3":"6.5084337","4":"36.4609301","5":"fixed","6":"conditional","7":"29.9524964","_rn_":"1"},{"1":"mom_hs","2":"0.9","3":"1.8889272","4":"9.3082993","5":"fixed","6":"conditional","7":"7.4193721","_rn_":"3"},{"1":"mom_age","2":"0.9","3":"-0.3201693","4":"0.7547443","5":"fixed","6":"conditional","7":"1.0749136","_rn_":"2"},{"1":"mom_iq","2":"0.9","3":"0.4630557","4":"0.6591621","5":"fixed","6":"conditional","7":"0.1961064","_rn_":"4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["CI"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CI_low"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CI_high"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Effects"],"name":[5],"type":["chr"],"align":["left"]},{"label":["Component"],"name":[6],"type":["chr"],"align":["left"]},{"label":["width"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"0.9","3":"6.5084337","4":"36.4609270","5":"fixed","6":"conditional","7":"29.9524934","_rn_":"1"},{"1":"mom_hs","2":"0.9","3":"1.8889272","4":"9.3082867","5":"fixed","6":"conditional","7":"7.4193594","_rn_":"3"},{"1":"mom_age","2":"0.9","3":"-0.3201695","4":"0.7547443","5":"fixed","6":"conditional","7":"1.0749138","_rn_":"2"},{"1":"mom_iq","2":"0.9","3":"0.4630557","4":"0.6591621","5":"fixed","6":"conditional","7":"0.1961064","_rn_":"4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -476,7 +482,7 @@ Warning
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">rope</span>(m6b))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Aufg_Metrische_AV_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<p><img src="Aufg_Metrische_AV_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Außerhalb des Ropes liegen 96,53 Prozent. Dementsprechend können wir uns laut der ROPE-Entscheidungsregel von Kruschke sicher sein, dass der gefragte Unterschied (kid_score|mom_hs = 0 vs.&nbsp;kid_score|mom_hs = 1) signifikant ist.</p>
@@ -501,13 +507,13 @@ Warning
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 344 Columns: 9
-── Column specification ────────────────────────────────────────────────────────
+-- Column specification --------------------------------------------------------
 Delimiter: ","
 chr (3): species, island, sex
 dbl (6): rownames, bill_length_mm, bill_depth_mm, flipper_length_mm, body_ma...
 
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+i Use `spec()` to retrieve the full column specification for this data.
+i Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">stan_glm</span>(body_mass_g <span class="sc">~</span> island, <span class="at">data =</span> penguins, <span class="at">refresh =</span> <span class="dv">0</span>)</span>
@@ -520,13 +526,13 @@ dbl (6): rownames, bill_length_mm, bill_depth_mm, flipper_length_mm, body_ma...
  predictors:   3
 ------
                 Median  MAD_SD 
-(Intercept)      4714.6    48.6
-islandDream      -999.3    74.3
-islandTorgersen -1006.3   102.2
+(Intercept)      4717.1    46.6
+islandDream     -1004.6    76.1
+islandTorgersen -1009.6    99.1
 
 Auxiliary parameter(s):
       Median MAD_SD
-sigma 627.5   24.6 
+sigma 627.1   23.8 
 
 ------
 * For help interpreting the printed output see ?print.stanreg
@@ -566,14 +572,14 @@ sigma 627.5   24.6
  predictors:   4
 ------
                 Median MAD_SD
-(Intercept)     1220.5  244.2
-islandDream     -919.2   60.0
-islandTorgersen -521.1   85.3
-bill_length_mm    77.2    5.3
+(Intercept)     1227.8  246.3
+islandDream     -919.2   61.2
+islandTorgersen -522.4   84.5
+bill_length_mm    77.1    5.3
 
 Auxiliary parameter(s):
       Median MAD_SD
-sigma 493.0   18.9 
+sigma 493.8   19.3 
 
 ------
 * For help interpreting the printed output see ?print.stanreg
@@ -584,13 +590,13 @@ sigma 493.0   18.9
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["CI"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["ROPE_low"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["ROPE_high"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["ROPE_Percentage"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Effects"],"name":[6],"type":["chr"],"align":["left"]},{"label":["Component"],"name":[7],"type":["chr"],"align":["left"]}],"data":[{"1":"(Intercept)","2":"0.95","3":"-80.19545","4":"80.19545","5":"0.0000000","6":"fixed","7":"conditional","_rn_":"1"},{"1":"islandDream","2":"0.95","3":"-80.19545","4":"80.19545","5":"0.0000000","6":"fixed","7":"conditional","_rn_":"3"},{"1":"islandTorgersen","2":"0.95","3":"-80.19545","4":"80.19545","5":"0.0000000","6":"fixed","7":"conditional","_rn_":"4"},{"1":"bill_length_mm","2":"0.95","3":"-80.19545","4":"80.19545","5":"0.7255263","6":"fixed","7":"conditional","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Parameter"],"name":[1],"type":["chr"],"align":["left"]},{"label":["CI"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["ROPE_low"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["ROPE_high"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["ROPE_Percentage"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Effects"],"name":[6],"type":["chr"],"align":["left"]},{"label":["Component"],"name":[7],"type":["chr"],"align":["left"]}],"data":[{"1":"(Intercept)","2":"0.95","3":"-80.19545","4":"80.19545","5":"0.0000000","6":"fixed","7":"conditional","_rn_":"1"},{"1":"islandDream","2":"0.95","3":"-80.19545","4":"80.19545","5":"0.0000000","6":"fixed","7":"conditional","_rn_":"3"},{"1":"islandTorgersen","2":"0.95","3":"-80.19545","4":"80.19545","5":"0.0000000","6":"fixed","7":"conditional","_rn_":"4"},{"1":"bill_length_mm","2":"0.95","3":"-80.19545","4":"80.19545","5":"0.7315789","6":"fixed","7":"conditional","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">rope</span>(m3))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Aufg_Metrische_AV_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<p><img src="Aufg_Metrische_AV_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Der Anteil der innerhalb des ROPEs liegt beträgt 0,00.</p>
@@ -628,12 +634,12 @@ sigma 493.0   18.9
  predictors:   2
 ------
                Median MAD_SD
-(Intercept)    369.5  277.1 
-bill_length_mm  87.2    6.4 
+(Intercept)    371.5  279.0 
+bill_length_mm  87.3    6.4 
 
 Auxiliary parameter(s):
       Median MAD_SD
-sigma 646.1   25.4 
+sigma 646.3   24.2 
 
 ------
 * For help interpreting the printed output see ?print.stanreg
@@ -673,8 +679,8 @@ sigma 646.1   25.4
  predictors:   4
 ------
             Median MAD_SD
-(Intercept) 31.1    7.2  
-wt          -3.1    1.3  
+(Intercept) 31.2    7.4  
+wt          -3.1    1.2  
 drat         0.8    1.5  
 disp         0.0    0.0  
 
@@ -709,7 +715,7 @@ sigma 3.0    0.4
             Median MAD_SD
 (Intercept) 20.1    0.5  
 wt_z        -3.1    1.2  
-drat_z       0.5    0.8  
+drat_z       0.4    0.8  
 disp_z      -2.1    1.2  
 
 Auxiliary parameter(s):

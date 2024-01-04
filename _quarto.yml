@@ -38,6 +38,7 @@ book:
         - Aufg_Lineare-Modelle.qmd
         - Aufg_Metrische_AV.qmd
         - Aufg_Klausurvorbereitung.qmd
+        - Aufg_DAG.qmd
     - references.qmd
 
 bibliography: references.bib

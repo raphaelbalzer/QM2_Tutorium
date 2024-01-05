@@ -452,21 +452,21 @@
     "href": "Prüfungstipps.html#allgemeine-hinweise",
     "title": "12  Tipps für die Prüfung",
     "section": "12.1 Allgemeine Hinweise",
-    "text": "12.1 Allgemeine Hinweise\nLest euch die Aufgaben immer genau durch und nehmt euch die Zeit dafür.\nSchaut euch auch die Prüfungshinweise rechtzeitig vor der Prüfung an, damit ihr genau wisst wie ihr bestimmte Angaben machen müsst. (Prüfungshinweise)"
+    "text": "12.1 Allgemeine Hinweise\nLest euch die Aufgaben immer genau durch und nehmt euch die Zeit dafür.\nSchaut euch auch die Prüfungshinweise rechtzeitig vor der Prüfung an, damit ihr genau wisst, wie ihr bestimmte Angaben machen müsst. (Prüfungshinweise)"
   },
   {
     "objectID": "Prüfungstipps.html#codesammlung",
     "href": "Prüfungstipps.html#codesammlung",
     "title": "12  Tipps für die Prüfung",
     "section": "12.2 Codesammlung",
-    "text": "12.2 Codesammlung\nLegt euch auf jeden Fall eine Codesammlung für die Prüfung an, in der alle wichtigen Codes vom Semester drin stehen. Dies ist besonders wichtig, damit ihr in der Prüfung nicht noch überlegen müsst, wie der Code nochmal genau aussieht, sondern direkt in eurer Sammlung danach suchen könnt und diesen Code dann kopieren.\nWir haben euch unter jedem Kapitel die relevantesten Codes zusammengefasst, ihr könnt euch diese also alle kopieren. Trotzdem raten wir euch auch selbst zu überlegen, welche Codes wichtig sein könnten.\nStrukturiert eure Codesammlung gut und schreibt immer dazu, was der Code macht, damit ihr direkt den passenden Code zu jeder Aufgabe findet."
+    "text": "12.2 Codesammlung\nLegt euch auf jeden Fall eine Codesammlung für die Prüfung an, in der alle wichtigen Codes vom Semester drin stehen. Dies ist besonders wichtig, damit ihr in der Prüfung nicht noch überlegen müsst, wie der Code nochmal genau aussieht, sondern direkt in eurer Sammlung danach suchen könnt und diesen Code dann kopieren.\nWir haben euch unter jedem Kapitel die relevantesten Codes zusammengefasst, ihr könnt euch diese also alle kopieren. Trotzdem raten wir euch dazu selbst zu überlegen, welche Codes wichtig sein könnten.\nStrukturiert eure Codesammlung gut und schreibt immer dazu, was der Code macht, damit ihr direkt den passenden Code zu jeder Aufgabe findet."
   },
   {
     "objectID": "Prüfungstipps.html#r-studio-cloud",
     "href": "Prüfungstipps.html#r-studio-cloud",
     "title": "12  Tipps für die Prüfung",
     "section": "12.3 R Studio Cloud",
-    "text": "12.3 R Studio Cloud\nR Studio Cloud Projekt\nHabt auf jeden Fall R Studio Cloud als Backup bereit, falls R studio bei euch aus irgendeinem Grund am Tag der Prüfung nicht funktioniert.\nHerr Sauer hat dafür ein Projekt angelegt, indem schon alle benötigten Pakete geladen sind.\n\n\n\n\n\n\nWarning\n\n\n\nHinweis: Achtung, es dauert etwas bis das Projekt geladen hat, also bereit es schon frühzeitig vor, damit ihr notfalls direkt loslegen könnt!"
+    "text": "12.3 R Studio Cloud\nR Studio Cloud Projekt\nHabt auf jeden Fall R Studio Cloud als Backup bereit, falls R Studio bei euch aus irgendeinem Grund am Tag der Prüfung nicht funktioniert.\nHerr Sauer hat dafür ein Projekt angelegt, indem schon alle benötigten Pakete geladen sind.\n\n\n\n\n\n\nWarning\n\n\n\nAchtung, es dauert etwas bis das Projekt geladen hat, also bereitet es schon frühzeitig vor, damit ihr notfalls direkt loslegen könnt!"
   },
   {
     "objectID": "Prüfungstipps.html#klausurprojekt-vorbereiten",
@@ -487,6 +487,6 @@
     "href": "Prüfungstipps.html#zum-abschluss",
     "title": "12  Tipps für die Prüfung",
     "section": "12.6 Zum Abschluss",
-    "text": "12.6 Zum Abschluss\nGanz wichtig zum Schluss: Keine Panik!\nEs ist alles absolut machbar! Wenn ihr fleißig die Aufgaben durchmacht und euch gut vorbereitet auf die Prüfung mit Codesammlung und Template dann wird es kein Problem für euch darstellen.\nWir wünschen euch viel Glück und Erfolg! 🍀"
+    "text": "12.6 Zum Abschluss\nGanz wichtig zum Schluss: Keine Panik!\nEs ist alles absolut machbar! Wenn ihr fleißig die Aufgaben durchmacht und euch gut auf die Prüfung mit Codesammlung und Template vorbereitet, dann wird es kein Problem für euch sein.\nWir wünschen euch viel Glück und Erfolg! 🍀"
   }
 ]

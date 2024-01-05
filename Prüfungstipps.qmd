@@ -4,13 +4,13 @@
 
 Lest euch die Aufgaben immer genau durch und nehmt euch die Zeit dafür.
 
-Schaut euch auch die Prüfungshinweise rechtzeitig vor der Prüfung an, damit ihr genau wisst wie ihr bestimmte Angaben machen müsst. ([Prüfungshinweise](https://hinweisbuch.netlify.app/hinweise-pruefung-klausur-frame))
+Schaut euch auch die Prüfungshinweise rechtzeitig vor der Prüfung an, damit ihr genau wisst, wie ihr bestimmte Angaben machen müsst. ([Prüfungshinweise](https://hinweisbuch.netlify.app/hinweise-pruefung-klausur-frame))
 
 ## Codesammlung
 
 Legt euch auf jeden Fall eine Codesammlung für die Prüfung an, in der alle wichtigen Codes vom Semester drin stehen. Dies ist besonders wichtig, damit ihr in der Prüfung nicht noch überlegen müsst, wie der Code nochmal genau aussieht, sondern direkt in eurer Sammlung danach suchen könnt und diesen Code dann kopieren.
 
-Wir haben euch unter jedem Kapitel die relevantesten Codes zusammengefasst, ihr könnt euch diese also alle kopieren. Trotzdem raten wir euch auch selbst zu überlegen, welche Codes wichtig sein könnten.
+Wir haben euch unter jedem Kapitel die relevantesten Codes zusammengefasst, ihr könnt euch diese also alle kopieren. Trotzdem raten wir euch dazu selbst zu überlegen, welche Codes wichtig sein könnten.
 
 Strukturiert eure Codesammlung gut und schreibt immer dazu, was der Code macht, damit ihr direkt den passenden Code zu jeder Aufgabe findet.
 
@@ -18,12 +18,12 @@ Strukturiert eure Codesammlung gut und schreibt immer dazu, was der Code macht, 
 
 [R Studio Cloud Projekt](https://posit.cloud/content/3421620)
 
-Habt auf jeden Fall R Studio Cloud als Backup bereit, falls R studio bei euch aus irgendeinem Grund am Tag der Prüfung nicht funktioniert.
+Habt auf jeden Fall R Studio Cloud als Backup bereit, falls R Studio bei euch aus irgendeinem Grund am Tag der Prüfung nicht funktioniert.
 
 Herr Sauer hat dafür ein Projekt angelegt, indem schon alle benötigten Pakete geladen sind.
 
 ::: callout-warning
-Hinweis: Achtung, es dauert etwas bis das Projekt geladen hat, also bereit es schon frühzeitig vor, damit ihr notfalls direkt loslegen könnt!
+Achtung, es dauert etwas bis das Projekt geladen hat, also bereitet es schon frühzeitig vor, damit ihr notfalls direkt loslegen könnt!
 :::
 
 ## Klausurprojekt vorbereiten
@@ -40,6 +40,6 @@ Trotzdem ist es wichtig, dass ihr Datensätze oder Modelle nie überschreibt. Br
 
 Ganz wichtig zum Schluss: Keine Panik!
 
-Es ist alles absolut machbar! Wenn ihr fleißig die Aufgaben durchmacht und euch gut vorbereitet auf die Prüfung mit Codesammlung und Template dann wird es kein Problem für euch darstellen.
+Es ist alles absolut machbar! Wenn ihr fleißig die Aufgaben durchmacht und euch gut auf die Prüfung mit Codesammlung und Template vorbereitet, dann wird es kein Problem für euch sein.
 
 Wir wünschen euch viel Glück und Erfolg! 🍀

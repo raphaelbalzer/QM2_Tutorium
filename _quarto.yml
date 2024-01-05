@@ -39,6 +39,7 @@ book:
         - Aufg_Metrische_AV.qmd
         - Aufg_Klausurvorbereitung.qmd
         - Aufg_DAG.qmd
+    - Prüfungstipps.qmd
     - references.qmd
 
 bibliography: references.bib

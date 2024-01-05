@@ -1,0 +1,45 @@
+# Tipps für die Prüfung
+
+## Allgemeine Hinweise
+
+Lest euch die Aufgaben immer genau durch und nehmt euch die Zeit dafür.
+
+Schaut euch auch die Prüfungshinweise rechtzeitig vor der Prüfung an, damit ihr genau wisst wie ihr bestimmte Angaben machen müsst. ([Prüfungshinweise](https://hinweisbuch.netlify.app/hinweise-pruefung-klausur-frame))
+
+## Codesammlung
+
+Legt euch auf jeden Fall eine Codesammlung für die Prüfung an, in der alle wichtigen Codes vom Semester drin stehen. Dies ist besonders wichtig, damit ihr in der Prüfung nicht noch überlegen müsst, wie der Code nochmal genau aussieht, sondern direkt in eurer Sammlung danach suchen könnt und diesen Code dann kopieren.
+
+Wir haben euch unter jedem Kapitel die relevantesten Codes zusammengefasst, ihr könnt euch diese also alle kopieren. Trotzdem raten wir euch auch selbst zu überlegen, welche Codes wichtig sein könnten.
+
+Strukturiert eure Codesammlung gut und schreibt immer dazu, was der Code macht, damit ihr direkt den passenden Code zu jeder Aufgabe findet.
+
+## R Studio Cloud
+
+[R Studio Cloud Projekt](https://posit.cloud/content/3421620)
+
+Habt auf jeden Fall R Studio Cloud als Backup bereit, falls R studio bei euch aus irgendeinem Grund am Tag der Prüfung nicht funktioniert.
+
+Herr Sauer hat dafür ein Projekt angelegt, indem schon alle benötigten Pakete geladen sind.
+
+::: callout-warning
+Hinweis: Achtung, es dauert etwas bis das Projekt geladen hat, also bereit es schon frühzeitig vor, damit ihr notfalls direkt loslegen könnt!
+:::
+
+## Klausurprojekt vorbereiten
+
+Erstellt euch für die Prüfung im Vorhinein ein neues R-Projekt, in dem ihr alle prüfungsrelevanten Datensätze abspeichert ([Liste der Prüfungsdatensätze](https://hinweisbuch.netlify.app/hinweise-pruefung-klausur-frame#liste-der-pr%C3%BCfungsdatens%C3%A4tze)). Wenn ihr das tut, könnt ihr bequem auf die Datensätze zugreifen, ohne sie extra laden zu müssen. Es könnte auch hilfreich sein, ein Dokument anzulegen, in dem ihr schon Kapitel für die Aufgaben habt oder schon Code für bestimmte Aufgabentypen. Dieses Dokument kann euch als Template dienen, das ihr in der Prüfung nur noch ausfüllen müsst. Anstatt die Datensätze im Vorhinein abzuspeichern, könnt ihr auch einen Code-Chunk in dem Dokument vorbereiten, in dem ihr die Datensätze über die Links importiert.
+
+## Dokumentation
+
+Achtet während der Prüfung darauf alle eure Schritte sauber zu dokumentieren. Dies hilft euch während der Prüfung, denn teilweise müsst ihr bei mehreren Aufgaben das gleiche Modell aufstellen und so spart ihr euch Rechenzeit. Auch im Nachhinein kann es euch helfen, alles gut dokumentiert zu haben, denn so könnt ihr belegen, wie ihr zu euren Ergebnissen gekommen seid.
+
+Trotzdem ist es wichtig, dass ihr Datensätze oder Modelle nie überschreibt. Braucht ihr z.B. für Aufgabe 1 ein Modell, welches ihr bei Aufgabe 2 auch braucht, dann benennt es für Aufgabe 2 einfach neu, damit ihr nicht aus Versehen etwas löscht und es am Ende für beide Aufgaben nochmal neu berechnen müsst.
+
+## Zum Abschluss
+
+Ganz wichtig zum Schluss: Keine Panik!
+
+Es ist alles absolut machbar! Wenn ihr fleißig die Aufgaben durchmacht und euch gut vorbereitet auf die Prüfung mit Codesammlung und Template dann wird es kein Problem für euch darstellen.
+
+Wir wünschen euch viel Glück und Erfolg! 🍀

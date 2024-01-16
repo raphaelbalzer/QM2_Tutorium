@@ -81,12 +81,13 @@ Aufgabe: Von x zu y, also die Wirkung von X auf Y
 
 Gabel, von einem Punkt gehen 2 Pfeile aus
 
-🚶\<---------- 🕳 -----------\> 🏁 
+🚶\<---------- 🕳 -----------\> 🏁
 
-x \<---------- z -----------\> y 
+x \<---------- z -----------\> y
 
-              🌉 
-
+```         
+          🌉 
+```
 
 Vorstellung: Wir haben einen Pfad, der bei X startet und über z zu y führt. Man stelle sich vor, an der Stelle von z sei ein Loch, durch das Kontrollieren bauen wir eine Brücke bzw. schließen das Loch.
 
@@ -98,9 +99,11 @@ Vorstellung: Wir haben einen Pfad, der bei X startet und über z zu y führt. Ma
 
 🚶----------\>💣\<-----------🚫
 
-x----------\> m \<----------- y 
+x----------\> m \<----------- y
 
-              🌋
+```         
+          🌋
+```
 
 Vorstellung: Wir haben einen Pfad, der bei X startet und über m zu y führt. Man stelle sich vor, an der Stelle von m explodiert die Straße (= Kollision), was tun wir jetzt? Wenn wir versuchen die Straße zu reparieren, also zu kontrollieren, explodiert m immer wieder, wir können uns vorstellen, dass z.B. ein Vulkan an der Stelle immer wieder ausbricht.
 
@@ -175,23 +178,23 @@ Wichtig ist es hierbei jeden Pfad einzeln für sich zu betrachten und nur bei de
 
 Betrachtet man nun die Variable `x7`, dann sieht man, dass egal welchen Pfad man geht, bei `x7` immer eine Kollision entsteht. Also kann man alle Pfade, die über `x7` führen ausschließen und es darf nicht kontrolliert werden. `x6` ist damit auch ein Collider, da der einzige Pfad, der keine Kollision bei `x6` hat über `x7` führt, damit ist auch diese Variable ausgeschlossen.
 
-Suchen wir jetzt nach Confundern: Je nach Pfad, den man wählt kann jede andere Variable, also `x1`, `x2` und `x3` (denn **UV und AV darf man nie kontrollieren**), ein Confunder sein.
+Suchen wir jetzt nach Confoundern: Je nach Pfad, den man wählt kann jede andere Variable, also `x1`, `x2` und `x3` (denn **UV und AV darf man nie kontrollieren**), ein Confounder sein.
 
-Schauen wir uns ein Beispiel an: `x4` \<- `x1` -\> `x2` -\> `x5` Bei diesem Pfad wäre `x1` der Confunder.
+Schauen wir uns ein Beispiel an: `x4` \<- `x1` -\> `x2` -\> `x5` Bei diesem Pfad wäre `x1` der Confounder.
 
-![DAG mit eingezeichneten Pfaden](DAG_Pfade.PNG) Alle Pfade mit Kollisionen sind hier rot gekennzeichnet, alle mit Confundern grün.
+![DAG mit eingezeichneten Pfaden](DAG_Pfade.PNG) Alle Pfade mit Kollisionen sind hier rot gekennzeichnet, alle mit Confoundern grün.
 
 5.  Die kleinste Menge finden
 
 Wie finden wir jetzt die minimale Menge an Variablen, die wir kontrollieren müssen, um alle Hintertürpfade zu schließen?
 
-Das Gute ist, dass sobald man einen Confunder auf einem Pfad hat, es total egal ist, welche "Zwischen"-Variable man kontrolliert.
+Das Gute ist, dass sobald man einen Confounder auf einem Pfad hat, es total egal ist, welche "Zwischen"-Variable man kontrolliert.
 
-Hier anhand eines Beispiels: `x4` \<- `x1` -\> `x2` -\> `x5` Bei diesem Pfad wäre `x1` zwar der Confunder, aber wir können stattdessen auch `x2` kontrollieren, da es für den Pfad und das Ergebnis egal ist, ob wir `x1` oder `x2` kontrollieren.
+Hier anhand eines Beispiels: `x4` \<- `x1` -\> `x2` -\> `x5` Bei diesem Pfad wäre `x1` zwar der Confounder, aber wir können stattdessen auch `x2` kontrollieren, da es für den Pfad und das Ergebnis egal ist, ob wir `x1` oder `x2` kontrollieren.
 
-Genauso egal ist es, welchen Confunder man kontrolliert, wenn man mehrere Confunder auf einem Pfad hat, es reicht immer, **nur einen** zu kontrollieren.
+Genauso egal ist es, welchen Confounder man kontrolliert, wenn man mehrere Confounder auf einem Pfad hat, es reicht immer, **nur einen** zu kontrollieren.
 
-Schauen wir jetzt, über welche "Zwischen"-Variable alle Confunder-Pfade laufen müssen: in diesem Fall wäre das `x2`, also reicht es nur diese Variable zu kontrollieren, um alle Hintertürpfade zu schließen und den Effekt der UV auf die AV zu identifizieren.
+Schauen wir jetzt, über welche "Zwischen"-Variable alle Confounder-Pfade laufen müssen: in diesem Fall wäre das `x2`, also reicht es nur diese Variable zu kontrollieren, um alle Hintertürpfade zu schließen und den Effekt der UV auf die AV zu identifizieren.
 
 ## kausal03
 
@@ -230,11 +233,11 @@ Hinweise:
 
 ### L
 
-Wir haben einen direkten kausalen Pfad zwischen `x` und `y` Ignorieren wir erstmal die gebogenen Pfeile und schauen uns dann zu allererst die Pfade an, die nur über eine Zwischenvariable führen. Hier sehen wir, dass es nur 2 Möglichkeiten gibt, einmal über `w1` und über `w2`, beides sind Confunder, also müssen wir beide auf jeden Fall kontrollieren.
+Wir haben einen direkten kausalen Pfad zwischen `x` und `y` Ignorieren wir erstmal die gebogenen Pfeile und schauen uns dann zu allererst die Pfade an, die nur über eine Zwischenvariable führen. Hier sehen wir, dass es nur 2 Möglichkeiten gibt, einmal über `w1` und über `w2`, beides sind Confounder, also müssen wir beide auf jeden Fall kontrollieren.
 
 Wir haben 2 Collider Pfade, einmal von `x` über `w1`, `z1`, `v`, `z2` zu `y` und von `x` über `z1`, `v`, `z2`, `w2` zu `y` (würden wir die beiden Pfade zu einem großen kombinieren hätten wir theoretisch sogar noch einen Collider-Pfad). Diese Pfade können wir also von unseren Überlegungen ausschließen.
 
-Suchen wir jetzt noch nach Confunder-Pfaden, die nicht über `w1` oder `w2` führen. Es bleibt nur ein Pfad übrig (von `x` über `z1`, `v`, `z2` zu `y`). Der Confunder wäre hier `v`, jedoch gibt es diese Antwortmöglichkeit nicht. Wie jedoch vorher erklärt, ist es egal welche Zwischenvariable wir auf einem Confunder-Pfaf kontrollieren, hauptsachen wir kontrollieren eine. Für diesen Pfad ist es also egal, ob wir `z1`, `v` oder `z2` kontrollieren.
+Suchen wir jetzt noch nach Confounder-Pfaden, die nicht über `w1` oder `w2` führen. Es bleibt nur ein Pfad übrig (von `x` über `z1`, `v`, `z2` zu `y`). Der Confounder wäre hier `v`, jedoch gibt es diese Antwortmöglichkeit nicht. Wie jedoch vorher erklärt, ist es egal welche Zwischenvariable wir auf einem Confounder-Pfaf kontrollieren, hauptsachen wir kontrollieren eine. Für diesen Pfad ist es also egal, ob wir `z1`, `v` oder `z2` kontrollieren.
 
 Die Lösung wäre also: { w1, w2, z2 }
 
@@ -244,7 +247,6 @@ Genauso richtig wäre aber auch: { w1, w2, z1 } { w1, w2, v }
 ## kausal29
 
 ::: panel-tabset
-
 ### A
 
 Gegeben sei der DAG (Graph) `g` (s. u.). Der DAG verfügt über mehrere Variablen, die als Knoten im Graph dargestellt sind.
@@ -302,13 +304,11 @@ outcome_var <- "y"
 Man sieht direkt, dass man immer über `m` gehen muss, um zu `y` zu gelangen. Betrachtet man den Pfad von `x` über `m` zu `y`, dann sieht man, dass `m` hier ein Mediator ist, diese muss man nicht kontrollieren. Der zweite mögliche Pfad führt über `m` und `z`, jedoch liegt hier bei `m` ein Collider vor, deswegen dürfen wir in dem Fall weder `m` noch `z` kontrollieren.
 
 Die Lösung ist also: { }, da wir keine Variable kontrollieren müssen, um den Effekt von `x` auf `y` zu identifizieren.
-
 :::
 
 ## kausal28
 
 ::: panel-tabset
-
 ### A
 
 ```{r echo=FALSE}
@@ -388,8 +388,7 @@ AV: `x8`.
 
 ### L
 
-Der DAG wirkt auf den ersten Blick sehr überfordernd, aber ist gar nicht schwer zu lösen. Es gibt einen direkten kausalen Pfad von `x7` auf `x8`. Schaut man sich den DAG jetzt genauer an, dann sieht man dass es für jede Zwischenvariable einen einzelnen Pfad gibt, heißt z.B. es gibt einen einzelnen Pfad der nur über `x5` oder nur über `x3` führt. Alle diese Variablen sinf für diese Pfade auch Confunder, also müssen wir alle Zwischenvariablen kontrollieren.
+Der DAG wirkt auf den ersten Blick sehr überfordernd, aber ist gar nicht schwer zu lösen. Es gibt einen direkten kausalen Pfad von `x7` auf `x8`. Schaut man sich den DAG jetzt genauer an, dann sieht man dass es für jede Zwischenvariable einen einzelnen Pfad gibt, heißt z.B. es gibt einen einzelnen Pfad der nur über `x5` oder nur über `x3` führt. Alle diese Variablen sinf für diese Pfade auch Confounder, also müssen wir alle Zwischenvariablen kontrollieren.
 
 Die Lösung ist also: { x1 , x2 , x3 , x4 , x5 , x6 }
-
 :::

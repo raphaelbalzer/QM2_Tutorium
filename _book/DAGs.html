@@ -393,17 +393,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p>Wichtig ist es hierbei jeden Pfad einzeln für sich zu betrachten und nur bei dem zu betrachtenden Pfad auf die Pfeilrichtungen zu schauen.</p>
 <p>Betrachtet man nun die Variable <code>x7</code>, dann sieht man, dass egal welchen Pfad man geht, bei <code>x7</code> immer eine Kollision entsteht. Also kann man alle Pfade, die über <code>x7</code> führen ausschließen und es darf nicht kontrolliert werden. <code>x6</code> ist damit auch ein Collider, da der einzige Pfad, der keine Kollision bei <code>x6</code> hat über <code>x7</code> führt, damit ist auch diese Variable ausgeschlossen.</p>
-<p>Suchen wir jetzt nach Confundern: Je nach Pfad, den man wählt kann jede andere Variable, also <code>x1</code>, <code>x2</code> und <code>x3</code> (denn <strong>UV und AV darf man nie kontrollieren</strong>), ein Confunder sein.</p>
-<p>Schauen wir uns ein Beispiel an: <code>x4</code> &lt;- <code>x1</code> -&gt; <code>x2</code> -&gt; <code>x5</code> Bei diesem Pfad wäre <code>x1</code> der Confunder.</p>
-<p><img src="DAG_Pfade.PNG" class="img-fluid" alt="DAG mit eingezeichneten Pfaden"> Alle Pfade mit Kollisionen sind hier rot gekennzeichnet, alle mit Confundern grün.</p>
+<p>Suchen wir jetzt nach Confoundern: Je nach Pfad, den man wählt kann jede andere Variable, also <code>x1</code>, <code>x2</code> und <code>x3</code> (denn <strong>UV und AV darf man nie kontrollieren</strong>), ein Confounder sein.</p>
+<p>Schauen wir uns ein Beispiel an: <code>x4</code> &lt;- <code>x1</code> -&gt; <code>x2</code> -&gt; <code>x5</code> Bei diesem Pfad wäre <code>x1</code> der Confounder.</p>
+<p><img src="DAG_Pfade.PNG" class="img-fluid" alt="DAG mit eingezeichneten Pfaden"> Alle Pfade mit Kollisionen sind hier rot gekennzeichnet, alle mit Confoundern grün.</p>
 <ol start="5" type="1">
 <li>Die kleinste Menge finden</li>
 </ol>
 <p>Wie finden wir jetzt die minimale Menge an Variablen, die wir kontrollieren müssen, um alle Hintertürpfade zu schließen?</p>
-<p>Das Gute ist, dass sobald man einen Confunder auf einem Pfad hat, es total egal ist, welche “Zwischen”-Variable man kontrolliert.</p>
-<p>Hier anhand eines Beispiels: <code>x4</code> &lt;- <code>x1</code> -&gt; <code>x2</code> -&gt; <code>x5</code> Bei diesem Pfad wäre <code>x1</code> zwar der Confunder, aber wir können stattdessen auch <code>x2</code> kontrollieren, da es für den Pfad und das Ergebnis egal ist, ob wir <code>x1</code> oder <code>x2</code> kontrollieren.</p>
-<p>Genauso egal ist es, welchen Confunder man kontrolliert, wenn man mehrere Confunder auf einem Pfad hat, es reicht immer, <strong>nur einen</strong> zu kontrollieren.</p>
-<p>Schauen wir jetzt, über welche “Zwischen”-Variable alle Confunder-Pfade laufen müssen: in diesem Fall wäre das <code>x2</code>, also reicht es nur diese Variable zu kontrollieren, um alle Hintertürpfade zu schließen und den Effekt der UV auf die AV zu identifizieren.</p>
+<p>Das Gute ist, dass sobald man einen Confounder auf einem Pfad hat, es total egal ist, welche “Zwischen”-Variable man kontrolliert.</p>
+<p>Hier anhand eines Beispiels: <code>x4</code> &lt;- <code>x1</code> -&gt; <code>x2</code> -&gt; <code>x5</code> Bei diesem Pfad wäre <code>x1</code> zwar der Confounder, aber wir können stattdessen auch <code>x2</code> kontrollieren, da es für den Pfad und das Ergebnis egal ist, ob wir <code>x1</code> oder <code>x2</code> kontrollieren.</p>
+<p>Genauso egal ist es, welchen Confounder man kontrolliert, wenn man mehrere Confounder auf einem Pfad hat, es reicht immer, <strong>nur einen</strong> zu kontrollieren.</p>
+<p>Schauen wir jetzt, über welche “Zwischen”-Variable alle Confounder-Pfade laufen müssen: in diesem Fall wäre das <code>x2</code>, also reicht es nur diese Variable zu kontrollieren, um alle Hintertürpfade zu schließen und den Effekt der UV auf die AV zu identifizieren.</p>
 </section>
 <section id="kausal03" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="kausal03"><span class="header-section-number">2.3</span> kausal03</h2>
@@ -434,9 +434,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>Wir haben einen direkten kausalen Pfad zwischen <code>x</code> und <code>y</code> Ignorieren wir erstmal die gebogenen Pfeile und schauen uns dann zu allererst die Pfade an, die nur über eine Zwischenvariable führen. Hier sehen wir, dass es nur 2 Möglichkeiten gibt, einmal über <code>w1</code> und über <code>w2</code>, beides sind Confunder, also müssen wir beide auf jeden Fall kontrollieren.</p>
+<p>Wir haben einen direkten kausalen Pfad zwischen <code>x</code> und <code>y</code> Ignorieren wir erstmal die gebogenen Pfeile und schauen uns dann zu allererst die Pfade an, die nur über eine Zwischenvariable führen. Hier sehen wir, dass es nur 2 Möglichkeiten gibt, einmal über <code>w1</code> und über <code>w2</code>, beides sind Confounder, also müssen wir beide auf jeden Fall kontrollieren.</p>
 <p>Wir haben 2 Collider Pfade, einmal von <code>x</code> über <code>w1</code>, <code>z1</code>, <code>v</code>, <code>z2</code> zu <code>y</code> und von <code>x</code> über <code>z1</code>, <code>v</code>, <code>z2</code>, <code>w2</code> zu <code>y</code> (würden wir die beiden Pfade zu einem großen kombinieren hätten wir theoretisch sogar noch einen Collider-Pfad). Diese Pfade können wir also von unseren Überlegungen ausschließen.</p>
-<p>Suchen wir jetzt noch nach Confunder-Pfaden, die nicht über <code>w1</code> oder <code>w2</code> führen. Es bleibt nur ein Pfad übrig (von <code>x</code> über <code>z1</code>, <code>v</code>, <code>z2</code> zu <code>y</code>). Der Confunder wäre hier <code>v</code>, jedoch gibt es diese Antwortmöglichkeit nicht. Wie jedoch vorher erklärt, ist es egal welche Zwischenvariable wir auf einem Confunder-Pfaf kontrollieren, hauptsachen wir kontrollieren eine. Für diesen Pfad ist es also egal, ob wir <code>z1</code>, <code>v</code> oder <code>z2</code> kontrollieren.</p>
+<p>Suchen wir jetzt noch nach Confounder-Pfaden, die nicht über <code>w1</code> oder <code>w2</code> führen. Es bleibt nur ein Pfad übrig (von <code>x</code> über <code>z1</code>, <code>v</code>, <code>z2</code> zu <code>y</code>). Der Confounder wäre hier <code>v</code>, jedoch gibt es diese Antwortmöglichkeit nicht. Wie jedoch vorher erklärt, ist es egal welche Zwischenvariable wir auf einem Confounder-Pfaf kontrollieren, hauptsachen wir kontrollieren eine. Für diesen Pfad ist es also egal, ob wir <code>z1</code>, <code>v</code> oder <code>z2</code> kontrollieren.</p>
 <p>Die Lösung wäre also: { w1, w2, z2 }</p>
 <p>Genauso richtig wäre aber auch: { w1, w2, z1 } { w1, w2, v }</p>
 </div>
@@ -544,7 +544,7 @@ z -&gt; y
 </section>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<p>Der DAG wirkt auf den ersten Blick sehr überfordernd, aber ist gar nicht schwer zu lösen. Es gibt einen direkten kausalen Pfad von <code>x7</code> auf <code>x8</code>. Schaut man sich den DAG jetzt genauer an, dann sieht man dass es für jede Zwischenvariable einen einzelnen Pfad gibt, heißt z.B. es gibt einen einzelnen Pfad der nur über <code>x5</code> oder nur über <code>x3</code> führt. Alle diese Variablen sinf für diese Pfade auch Confunder, also müssen wir alle Zwischenvariablen kontrollieren.</p>
+<p>Der DAG wirkt auf den ersten Blick sehr überfordernd, aber ist gar nicht schwer zu lösen. Es gibt einen direkten kausalen Pfad von <code>x7</code> auf <code>x8</code>. Schaut man sich den DAG jetzt genauer an, dann sieht man dass es für jede Zwischenvariable einen einzelnen Pfad gibt, heißt z.B. es gibt einen einzelnen Pfad der nur über <code>x5</code> oder nur über <code>x3</code> führt. Alle diese Variablen sinf für diese Pfade auch Confounder, also müssen wir alle Zwischenvariablen kontrollieren.</p>
 <p>Die Lösung ist also: { x1 , x2 , x3 , x4 , x5 , x6 }</p>
 </div>
 </div>

@@ -9,7 +9,6 @@ library(xfun)
 ## Aufgabe 1
 
 ::: panel-tabset
-
 ### A1
 
 ```{r, echo=FALSE}
@@ -52,7 +51,7 @@ AV: `y4`.
 -   Es ist möglich, dass es keine Lösung gibt, dass es also keine Adjustierungsmenge gibt, um den kausalen Effekt zu identifizieren. Wenn dies der Fall sein sollte, wählen Sie "keine Lösung".
 -   Es ist möglich, dass einzelne Variablen keine Kanten besitzen, also keine Verbindung zu anderen Variablen (Knoten) haben.
 
-Answerlist\\
+**Answerlist**
 
 -   `{y1, y2}`
 
@@ -62,20 +61,20 @@ Answerlist\\
 
 -   `{y2}`
 
--   `{y5, y1}`\
+-   `{y5, y1}`
 
 ### L1
 
 Richtige Antwort ist: `{y2}`
 
-Es gibt einen direkten kausalen Pfad. Es führt ein Confunder Pfad über `x2` und einer über `x1` und `x2`. Für ersteres wäre `x2` der Confunder, für den zweiten Pfad wäre `x1` der Confunder. Da beide Pfade über `x2` führen, reicht es nur `x9` zu kontrollieren.
+Es gibt einen direkten kausalen Pfad. Es führt ein Confounder Pfad über `x2` und einer über `x1` und `x2`. Für ersteres wäre `x2` der Confounder, für den zweiten Pfad wäre `x1` der Confounder. Da beide Pfade über `x2` führen, reicht es nur `x9` zu kontrollieren.
 
+Und weil viele nachgefragt hatten: `{y1}` muss nicht kontrolliert werden, weil auf diesem Pfad gar kein Confounder vorliegt. Deshalb müssen wir diesen Pfad auch nicht schließen.
 :::
 
 ## Aufgabe 2
 
 ::: panel-tabset
-
 ### A2
 
 ```{r echo=FALSE}
@@ -120,7 +119,7 @@ AV: `x6`.
 -   Es ist möglich, dass es keine Lösung gibt, dass es also keine Adjustierungsmenge gibt, um den kausalen Effekt zu identifizieren. Wenn dies der Fall sein sollte, wählen Sie "keine Lösung".
 -   Es ist möglich, dass einzelne Variablen keine Kanten besitzen, also keine Verbindung zu anderen Variablen (Knoten) haben.
 
-Answerlist\\
+**Answerlist**
 
 -   `{x2}`
 
@@ -130,20 +129,18 @@ Answerlist\\
 
 -   `{x6, x1}`
 
--   `{x1, x2}`\
+-   `{x1, x2}`
 
 ### L2
 
-Richtige Antwort ist: `{x1, x2}` 
+Richtige Antwort ist: `{x1, x2}`
 
 Es führt sowohl ein Konfundierungspfad über `x1` (ohne dabei über `x2` zu gehen) als auch einer über `x2` (ohne dabei über `x1` zu gehen).
-
 :::
 
 ## Aufgabe 3
 
 ::: panel-tabset
-
 ### A3
 
 ```{r echo=FALSE}
@@ -188,7 +185,7 @@ AV: `x6`.
 -   Es ist möglich, dass es keine Lösung gibt, dass es also keine Adjustierungsmenge gibt, um den kausalen Effekt zu identifizieren. Wenn dies der Fall sein sollte, wählen Sie "keine Lösung".
 -   Es ist möglich, dass einzelne Variablen keine Kanten besitzen, also keine Verbindung zu anderen Variablen (Knoten) haben.
 
-Answerlist\\
+**Answerlist**
 
 -   `{x2}`
 
@@ -198,20 +195,18 @@ Answerlist\\
 
 -   `{x4, x1}`
 
--   `{x3, x4}`\
+-   `{x3, x4}`
 
 ### L3
 
-Richtige Antwort ist: `{x3, x4}` 
+Richtige Antwort ist: `{x3, x4}`
 
-`x3` muss auf jeden Fall kontrolliert werden, dadurch ist auch automatisch der Pfad über `x1` geschlossen. Schaut man sich jetzt den Pfad über `x2` und `x4` an, dann sieht man das der Confunder `x2` ist, jedoch gibt es diese Antwortmöglichkeit nicht. Wir wissen aber auch, dass es egal ist welche Zwischenvariable man auf einem Confunderpfad kontrolliert, solange man eine kontrolliert. Deswegen kann man auch `x4`kontrollieren, um diesen Pfad zu schließen.
-
+`x3` muss auf jeden Fall kontrolliert werden, dadurch ist auch automatisch der Pfad über `x1` geschlossen. Schaut man sich jetzt den Pfad über `x2` und `x4` an, dann sieht man das der Confounder `x2` ist, jedoch gibt es diese Antwortmöglichkeit nicht. Wir wissen aber auch, dass es egal ist welche Zwischenvariable man auf einem Confounderpfad kontrolliert, solange man eine kontrolliert. Deswegen kann man auch `x4`kontrollieren, um diesen Pfad zu schließen.
 :::
 
 ## Aufgabe 4
 
 ::: panel-tabset
-
 ### A4
 
 ```{r echo=FALSE}
@@ -257,7 +252,7 @@ AV: `x6`.
 -   Es ist möglich, dass es keine Lösung gibt, dass es also keine Adjustierungsmenge gibt, um den kausalen Effekt zu identifizieren. Wenn dies der Fall sein sollte, wählen Sie "keine Lösung".
 -   Es ist möglich, dass einzelne Variablen keine Kanten besitzen, also keine Verbindung zu anderen Variablen (Knoten) haben.
 
-Answerlist\\
+**Answerlist**
 
 -   `{x2}`
 
@@ -267,20 +262,18 @@ Answerlist\\
 
 -   `{x4, x1}`
 
--   `{x1, x2}`\
+-   `{x1, x2}`
 
 ### L4
 
-Richtige Antwort ist: `{x1}` 
+Richtige Antwort ist: `{x1}`
 
-`x1` muss auf jeden Fall kontrolliert werden, denn alle Confunder-Pfade müssen zwangsläufig über `x1` gehen. Alle Pfade, die über `x5` haben an dieser Stelle eine Kollision, also dürfen wir hier nichts kontrollieren. Genauso haben wir einen Collider bei `x3` wenn wir den Pfad von `x4` über `x2`, `x3`, `x1` zu `x6` gehen.
-
+`x1` muss auf jeden Fall kontrolliert werden, denn alle Confounder-Pfade müssen zwangsläufig über `x1` gehen. Alle Pfade, die über `x5` haben an dieser Stelle eine Kollision, also dürfen wir hier nichts kontrollieren. Genauso haben wir einen Collider bei `x3` wenn wir den Pfad von `x4` über `x2`, `x3`, `x1` zu `x6` gehen.
 :::
 
 ## Aufgabe 5
 
 ::: panel-tabset
-
 ### A5
 
 ```{r echo=FALSE}
@@ -330,9 +323,9 @@ AV: `x6`.
 -   Es ist möglich, dass es keine Lösung gibt, dass es also keine Adjustierungsmenge gibt, um den kausalen Effekt zu identifizieren. Wenn dies der Fall sein sollte, wählen Sie "keine Lösung".
 -   Es ist möglich, dass einzelne Variablen keine Kanten besitzen, also keine Verbindung zu anderen Variablen (Knoten) haben.
 
-Answerlist\\
+**Answerlist**
 
--   `{x2}`
+-   `{x3}`
 
 -   `{ }`
 
@@ -340,12 +333,13 @@ Answerlist\\
 
 -   `{x4, x1}`
 
--   `{x1, x2}`\
+-   `{x1, x2}`
 
 ### L5
 
-Richtige Antwort ist: `{x1}` 
+Richtige Antwort ist: `{x1}`
 
-`x1` muss auf jeden Fall kontrolliert werden, denn alle Confunder-Pfade müssen zwangsläufig über `x1` gehen. Alle Pfade, die über `x5` haben an dieser Stelle eine Kollision, also dürfen wir hier nichts kontrollieren. Genauso haben wir einen Collider bei `x3` wenn wir den Pfad von `x4` über `x2`, `x3`, `x1` zu `x6` gehen.
+`x1` muss auf jeden Fall kontrolliert werden, denn alle Confounder-Pfade müssen zwangsläufig über `x1` gehen. Alle Pfade, die über `x5` haben an dieser Stelle eine Kollision, also dürfen wir hier nichts kontrollieren. Genauso haben wir einen Collider bei `x3` wenn wir den Pfad von `x4` über `x2`, `x3`, `x1` zu `x6` gehen.
 
+*Hinweis: Vorher gab es hier auch noch als Lösungsmöglichkeit `{x2}`, was auch richtig gewesen wäre. Man muss entweder `{x2}` oder `{x1}` kontrollieren, welches von beidem ist aber egal. Da man aber immer nur eine Antwortmöglichkeit in der Klausur ankreuzen kann, haben wir hier korrigiert, dass auch wirklich nur eine Antwort richtig ist.*
 :::
